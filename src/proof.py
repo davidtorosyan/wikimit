@@ -47,6 +47,7 @@ class PageInfo:
 def main():
     if len(sys.argv) < 3:
         sys.exit('Usage: python proof.py title outdir')
+    git_check_min_version()
     title = sys.argv[1]
     path = sys.argv[2]
     process_all(title, path)
@@ -165,6 +166,30 @@ def update_files(info, commit):
     git_add(info_name)
 
 # git
+
+def git_check_min_version():
+    out, err = subprocess.Popen([
+        'git',
+        '--version'
+    ], stdout=subprocess.PIPE).communicate()
+
+    git_version_info = out.decode('utf-8').split()
+    assert git_version_info[0] == 'git'
+    assert git_version_info[1] == 'version'
+    version_parts = [int(part) for part in git_version_info[2].split('.')]
+    assert len(version_parts) == 3
+
+    # We use paramaters that require 2.28.0 (--initial-branch)
+    version_too_old_message = f"Version of git {version_parts[0]} is too old. Min version: 2.28.0."
+    if version_parts[0] < 2:
+        print(version_too_old_message)
+        exit(1)
+
+    if  version_parts[0] == 2 and version_parts[1] < 28:
+        print(version_too_old_message)
+        exit(1)
+
+    print(git_version_info)
 
 def git_repo_root():
     return subprocess.Popen([
