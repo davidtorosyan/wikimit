@@ -19,7 +19,7 @@ See [wikimit-hub](https://github.com/wikimit-hub) for a collection of repositori
 
 ## Setup
 
-This project is in prototyping stage, so the only setup available is figuring out how to run [proof.py](src/proof.py).
+This project is in prototyping stage, so the only setup available is figuring out how to run [proof.py](src/proof/proof.py).
 
 ## Usage
 
