@@ -25,5 +25,12 @@ This project is in prototyping stage, so the only setup available is figuring ou
 
 Not ready yet!
 
+## Development
+
+Created `wikimit-engine` with [SAM CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/install-sam-cli.html), version 1.103.0, using this command:
+```
+sam init --no-interactive --name=wikimit-engine --runtime python3.11 --dependency-manager pip --app-template hello-world --tracing --application-insights --structured-logging
+```
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
