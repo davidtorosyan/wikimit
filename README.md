@@ -32,5 +32,12 @@ Created `wikimit-engine` with [SAM CLI](https://docs.aws.amazon.com/serverless-a
 sam init --no-interactive --name=wikimit-engine --runtime python3.11 --dependency-manager pip --app-template hello-world --tracing --application-insights --structured-logging
 ```
 
+Some useful commands:
+* `sam build`
+
+For local commands, you must install and run [Docker](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/install-docker.html):
+* `sam local invoke`
+* `sam local start-api`
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
