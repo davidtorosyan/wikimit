@@ -36,6 +36,7 @@ Some useful commands:
 * `sam build`
 
 For local commands, you must install and run [Docker](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/install-docker.html):
+* `sam build --use-container`
 * `sam local invoke`
 * `sam local start-api`
 
