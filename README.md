@@ -40,5 +40,24 @@ For local commands, you must install and run [Docker](https://docs.aws.amazon.co
 * `sam local invoke`
 * `sam local start-api`
 
+Before running tests, install [python 3.11](https://www.python.org/downloads/release/python-3117/) and [pip](https://pip.pypa.io/en/stable/installation/).
+
+To run unit tests:
+```sh
+pip install -r tests/requirements.txt --user
+python -m pytest tests/unit -v
+```
+
+To run integration tests (on Windows):
+```sh
+$env:AWS_SAM_STACK_NAME="wikimit-engine"
+python -m pytest tests/integration -v
+```
+
+To run integration tests (on unix/mac):
+```sh
+AWS_SAM_STACK_NAME="wikimit-engine" python -m pytest tests/integration -v
+```
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
