@@ -59,5 +59,46 @@ To run integration tests (on unix/mac):
 AWS_SAM_STACK_NAME="wikimit-engine" python -m pytest tests/integration -v
 ```
 
+To run the step function locally (on Windows):
+```ps1
+# prepare
+sam local start-lambda
+
+# variables
+$port="8083"
+$endpoint="http://localhost:$port"
+$region="us-west-1"
+$account="123456789012"
+$stateMachineName="StockTradingStateMachine"
+$stateMachineArn="arn:aws:states:${region}:${account}:stateMachine:${stateMachineName}"
+$executionName="test"
+$executionArn="arn:aws:states:${region}:${account}:execution:${stateMachineName}:${executionName}"
+$functionArnRoot="arn:aws:lambda:${region}:${account}:function"
+
+# setup
+docker run -p "${port}:${port}" --env-file tests/config/aws-stepfunctions-local-credentials.txt amazon/aws-stepfunctions-local
+
+# create
+$content = Get-Content -Path .\statemachine\stock_trader.asl.json -Raw
+$content = $content -replace '\$\{([^}]+)Arn\}', ($functionArnRoot+':$1')
+$content = $content -replace '\$\{(DDBPutItem)\}', ($functionArnRoot+':$1')
+aws stepfunctions --endpoint $endpoint create-state-machine --name "$stateMachineName" --definition "$content" --role-arn "arn:aws:iam::${account}:role/DummyRole"
+
+# start
+aws stepfunctions --endpoint $endpoint start-execution --state-machine-arn $stateMachineArn --name $executionName
+
+# check
+aws stepfunctions --endpoint $endpoint describe-execution --execution-arn $executionArn
+
+# stop
+aws stepfunctions --endpoint $endpoint stop-execution --execution-arn $executionArn
+
+# delete
+aws stepfunctions --endpoint $endpoint delete-state-machine --state-machine-arn $stateMachineArn
+
+# list
+aws stepfunctions --endpoint $endpoint list-executions --state-machine-arn $stateMachineArn --status-filter RUNNING
+```
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
