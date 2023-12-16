@@ -1,29 +1,25 @@
-from wiki import current_page_info
+from typing import Any
+
+from sync import SyncRequest, sync
+from wiki import LANGUAGE_EN, SITE_WIKIPEDIA
 
 
-def lambda_handler(event: dict, context: object):  # type: ignore
-    """Sample Lambda function which mocks the operation of selling a random number
-    of shares for a stock.
+def lambda_handler(event: Any, context: object) -> Any:  # type: ignore
+    if "title" not in event:
+        return {
+            "success": False,
+            "message": "Invalid event, missing title",
+            "has_new_revisions": False,
+        }
 
-    For demonstration purposes, this Lambda function does not actually perform any
-    actual transactions. It simply returns a mocked result.
+    request = SyncRequest(
+        site=SITE_WIKIPEDIA,
+        language=LANGUAGE_EN,
+        title=event.get("title"),  # type: ignore
+    )
+    result = sync(request)
 
-    Parameters
-    ----------
-    event: dict, required
-        Input event to the Lambda function
-
-    context: object, required
-        Lambda Context runtime methods and attributes
-
-    Returns
-    ------
-        dict: Object containing details of the stock selling transaction
-    """
-    title: str | None = event.get("title")  # type: ignore
-    # url: str | None = event.get("url")
-
-    info = current_page_info(title)  # type: ignore
-    print(info)
-
-    return {"has_new_revisions": False}
+    return {
+        "success": True,
+        "has_new_revisions": result.has_new_revisions,
+    }

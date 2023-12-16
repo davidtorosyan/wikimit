@@ -34,6 +34,7 @@ sam init --no-interactive --name=wikimit-engine --runtime python3.11 --dependenc
 
 Some useful commands:
 * `sam build`
+* `pip install -r functions/revision_sync/requirements.txt --user`
 
 For local commands, you must install and run [Docker](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/install-docker.html):
 * `sam build --use-container`
