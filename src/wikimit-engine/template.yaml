@@ -8,22 +8,10 @@ Resources:
     Properties:
       DefinitionUri: statemachine/revision_sync.asl.json
       DefinitionSubstitutions:
-        RevisionCheckFunctionArn: !GetAtt RevisionCheckFunction.Arn
         RevisionSyncFunctionArn: !GetAtt RevisionSyncFunction.Arn
       Policies: # Find out more about SAM policy templates: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-policy-templates.html
         - LambdaInvokePolicy:
-            FunctionName: !Ref RevisionCheckFunction
-        - LambdaInvokePolicy:
             FunctionName: !Ref RevisionSyncFunction
-
-  RevisionCheckFunction:
-    Type: AWS::Serverless::Function # More info about Function Resource: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html
-    Properties:
-      CodeUri: functions/revision_check/
-      Handler: app.lambda_handler
-      Runtime: python3.11
-      Architectures:
-        - x86_64
 
   RevisionSyncFunction:
     Type: AWS::Serverless::Function

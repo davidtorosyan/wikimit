@@ -1,33 +1,7 @@
 {
     "Comment": "A state machine that syncs Wikipedia pages to GitHub.",
-    "StartAt": "Check for new revisions",
+    "StartAt": "Sync revisions",
     "States": {
-        "Check for new revisions": {
-            "Type": "Task",
-            "Resource": "${RevisionCheckFunctionArn}",
-            "Retry": [
-                {
-                    "ErrorEquals": [
-                        "States.TaskFailed"
-                    ],
-                    "IntervalSeconds": 15,
-                    "MaxAttempts": 5,
-                    "BackoffRate": 1.5
-                }
-            ],
-            "Next": "Anything new?"
-        },
-        "Anything new?": {
-            "Type": "Choice",
-            "Choices": [
-                {
-                    "Variable": "$.has_new_revisions",
-                    "BooleanEquals": true,
-                    "Next": "Sync revisions"
-                }
-            ],
-            "Default": "Up to date!"
-        },
         "Sync revisions": {
             "Type": "Task",
             "Resource": "${RevisionSyncFunctionArn}",
@@ -41,7 +15,18 @@
                     "BackoffRate": 1.5
                 }
             ],
-            "Next": "Anything new?"
+            "Next": "More work?"
+        },
+        "More work?": {
+            "Type": "Choice",
+            "Choices": [
+                {
+                    "Variable": "$.has_new_revisions",
+                    "BooleanEquals": true,
+                    "Next": "Sync revisions"
+                }
+            ],
+            "Default": "Up to date!"
         },
         "Up to date!": {
             "Type": "Succeed"

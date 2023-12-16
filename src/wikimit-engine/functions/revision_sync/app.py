@@ -22,4 +22,4 @@ def lambda_handler(event, context):
     ------
         dict: Object containing details of the stock selling transaction
     """
-    return {"has_new_revisions": False}
+    return {"has_new_revisions": True}
