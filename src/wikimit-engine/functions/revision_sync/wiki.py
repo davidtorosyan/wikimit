@@ -14,8 +14,6 @@ class PageInfo:
     highest_known_revision_timestamp: str
 
 
-WIKI_BASE = "https://en.wikipedia.org"
-
 SITE_WIKIPEDIA = "wikipedia.org"
 LANGUAGE_EN = "en"
 
@@ -55,7 +53,7 @@ def _export_page(
     language: str,
     title: str,
     current: bool = False,
-    offset: int = 1,
+    offset: str = "",
     limit: int = 5,
 ) -> bytes:
     """

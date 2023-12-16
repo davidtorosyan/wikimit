@@ -1,0 +1,105 @@
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.10/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mediawiki.org/xml/export-0.10/ http://www.mediawiki.org/xml/export-0.10.xsd" version="0.10" xml:lang="en">
+  <siteinfo>
+    <sitename>Wikipedia</sitename>
+    <dbname>enwiki</dbname>
+    <base>https://en.wikipedia.org/wiki/Main_Page</base>
+    <generator>MediaWiki 1.42.0-wmf.9</generator>
+    <case>first-letter</case>
+    <namespaces>
+      <namespace key="-2" case="first-letter">Media</namespace>
+      <namespace key="-1" case="first-letter">Special</namespace>
+      <namespace key="0" case="first-letter" />
+      <namespace key="1" case="first-letter">Talk</namespace>
+      <namespace key="2" case="first-letter">User</namespace>
+      <namespace key="3" case="first-letter">User talk</namespace>
+      <namespace key="4" case="first-letter">Wikipedia</namespace>
+      <namespace key="5" case="first-letter">Wikipedia talk</namespace>
+      <namespace key="6" case="first-letter">File</namespace>
+      <namespace key="7" case="first-letter">File talk</namespace>
+      <namespace key="8" case="first-letter">MediaWiki</namespace>
+      <namespace key="9" case="first-letter">MediaWiki talk</namespace>
+      <namespace key="10" case="first-letter">Template</namespace>
+      <namespace key="11" case="first-letter">Template talk</namespace>
+      <namespace key="12" case="first-letter">Help</namespace>
+      <namespace key="13" case="first-letter">Help talk</namespace>
+      <namespace key="14" case="first-letter">Category</namespace>
+      <namespace key="15" case="first-letter">Category talk</namespace>
+      <namespace key="100" case="first-letter">Portal</namespace>
+      <namespace key="101" case="first-letter">Portal talk</namespace>
+      <namespace key="118" case="first-letter">Draft</namespace>
+      <namespace key="119" case="first-letter">Draft talk</namespace>
+      <namespace key="710" case="first-letter">TimedText</namespace>
+      <namespace key="711" case="first-letter">TimedText talk</namespace>
+      <namespace key="828" case="first-letter">Module</namespace>
+      <namespace key="829" case="first-letter">Module talk</namespace>
+      <namespace key="2300" case="case-sensitive">Gadget</namespace>
+      <namespace key="2301" case="case-sensitive">Gadget talk</namespace>
+      <namespace key="2302" case="case-sensitive">Gadget definition</namespace>
+      <namespace key="2303" case="case-sensitive">Gadget definition talk</namespace>
+    </namespaces>
+  </siteinfo>
+  <page>
+    <title>Finch</title>
+    <ns>0</ns>
+    <id>11711</id>
+    <revision>
+      <id>799780</id>
+      <parentid>672963</parentid>
+      <timestamp>2003-02-16T08:58:36Z</timestamp>
+      <contributor>
+        <username>Jimfbleak</username>
+        <id>7872</id>
+      </contributor>
+      <comment>sparrow deleted. its a weaver finch, not a fringillid</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="695" xml:space="preserve">[[Aves]], [[Passeriformes]]. '''Finches''' are [[seed]]-eating birds of many [[species]] found chiefly in the northern hemisphere but also to a limited extent in [[Africa]] and [[South America]]. They are small to moderately large and have a strong [[beak]], usually [[cone|conical]] and in some species very large.
+
+In addition to the species whose names indicate their relation with the group, such as the greenfinches and chaffinches, the finches include birds with distinctive names. The [[grosbeak|grosbeaks]], [[cardinal|cardinals]], [[brambling|bramblings]], [[siskin|siskins]], [[linnet|linnets]], [[redpoll|redpolls]], [[canary|canaries]] and [[crossbill|crossbills]] are all finches.</text>
+      <sha1>m7bzn7hym75mfws8q6uwxjapcxswgft</sha1>
+    </revision>
+    <revision>
+      <id>799798</id>
+      <parentid>799780</parentid>
+      <timestamp>2003-04-03T15:45:22Z</timestamp>
+      <contributor>
+        <username>Tannin</username>
+        <id>6169</id>
+      </contributor>
+      <comment>Taxobox - probably incomplete gerera listing Also disambiguate grass-finches</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="2004" xml:space="preserve">&lt;table border="1" cellspacing="0" align="right" cellpading="2"&gt;
+
+&lt;tr&gt;&lt;th align="center" bgcolor=pink colspan="2"&gt;'''True Finches'''&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;th align="center" bgcolor=pink&gt;'''[[Scientific classification]]'''&lt;/th&gt;&lt;/tr&gt;
+
+&lt;tr&gt;&lt;td&gt;
+&lt;table align="center"&gt;
+&lt;tr&gt;&lt;td&gt;[[Kingdom (biology)|Kingdom]]:  &lt;/td&gt;&lt;td&gt;[[Animal]]ia&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;[[Phylum (biology)|Phylum]]:&lt;/td&gt;&lt;td&gt;[[Chordate|Chordata]]&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;[[Class (biology)|Class]]:&lt;/td&gt;&lt;td&gt;[[bird|Aves]]&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;[[Order (biology)|Order]]:&lt;/td&gt;&lt;td&gt;[[Passeriformes]]&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;[[Family (biology)|Family]]:&lt;/td&gt;&lt;td&gt;'''Fringillidae'''&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/td&gt;&lt;/tr&gt;
+
+&lt;tr&gt;&lt;td&gt;
+&lt;table align="center"&gt;
+&lt;tr&gt;&lt;th align="center" colspan="2" bgcolor=pink&gt;[[Genera]]&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;''[[Fringilla]]''&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;''[[Carduelis]]''&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;''[[Sturnella]]''&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+'''Finches''' are [[seed]]-eating birds of many [[species]] found chiefly in the northern hemisphere but also to a limited extent in [[Africa]] and [[South America]]. They are small to moderately large and have a strong [[beak]], usually [[cone|conical]] and in some species very large.
+
+In addition to the species whose names indicate their relation with the group, such as the greenfinches and chaffinches, the finches include birds with distinctive names. The [[grosbeak|grosbeaks]], [[cardinal|cardinals]], [[brambling|bramblings]], [[siskin|siskins]], [[linnet|linnets]], [[redpoll|redpolls]], [[canary|canaries]] and [[crossbill|crossbills]] are all finches.
+
+The very similar-looking [[Australian]] birds of the family [[Passeridae]] are also usually called ''finches''. Strictly, this is incorrect: these 'finches' belong to the Estrildini or [[waxbill]] subfamily of the large and diverse Passeridae family (which also includes the [[sparrows]] and [[weaverbirds]]), and are [[grass-finch]]es or [[mannikins]] of ultimately [[African]] origin.</text>
+      <sha1>35og7xoi9r8u1l6s2ku3g7h7581tzu5</sha1>
+    </revision>
+  </page>
+</mediawiki>

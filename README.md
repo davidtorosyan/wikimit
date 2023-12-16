@@ -105,5 +105,12 @@ aws stepfunctions --endpoint $endpoint delete-state-machine --state-machine-arn 
 aws stepfunctions --endpoint $endpoint list-executions --state-machine-arn $stateMachineArn --status-filter RUNNING
 ```
 
+To generate mocks:
+```sh
+curl -d "&pages=Finch&curonly=true&action=submit" https://en.wikipedia.org/w/index.php?title=Special:Export -o "tests/mock/wiki_smoke_current.xml"
+curl -d "&pages=Finch&limit=2&action=submit" https://en.wikipedia.org/w/index.php?title=Special:Export -o "tests/mock/wiki_smoke_history_1.xml"
+curl -d "&pages=Finch&limit=2&offset=2002-12-17T03:58:19Z&action=submit" https://en.wikipedia.org/w/index.php?title=Special:Export -o "tests/mock/wiki_smoke_history_2.xml"
+```
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)

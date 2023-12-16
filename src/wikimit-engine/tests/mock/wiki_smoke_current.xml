@@ -1,0 +1,374 @@
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.10/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mediawiki.org/xml/export-0.10/ http://www.mediawiki.org/xml/export-0.10.xsd" version="0.10" xml:lang="en">
+  <siteinfo>
+    <sitename>Wikipedia</sitename>
+    <dbname>enwiki</dbname>
+    <base>https://en.wikipedia.org/wiki/Main_Page</base>
+    <generator>MediaWiki 1.42.0-wmf.9</generator>
+    <case>first-letter</case>
+    <namespaces>
+      <namespace key="-2" case="first-letter">Media</namespace>
+      <namespace key="-1" case="first-letter">Special</namespace>
+      <namespace key="0" case="first-letter" />
+      <namespace key="1" case="first-letter">Talk</namespace>
+      <namespace key="2" case="first-letter">User</namespace>
+      <namespace key="3" case="first-letter">User talk</namespace>
+      <namespace key="4" case="first-letter">Wikipedia</namespace>
+      <namespace key="5" case="first-letter">Wikipedia talk</namespace>
+      <namespace key="6" case="first-letter">File</namespace>
+      <namespace key="7" case="first-letter">File talk</namespace>
+      <namespace key="8" case="first-letter">MediaWiki</namespace>
+      <namespace key="9" case="first-letter">MediaWiki talk</namespace>
+      <namespace key="10" case="first-letter">Template</namespace>
+      <namespace key="11" case="first-letter">Template talk</namespace>
+      <namespace key="12" case="first-letter">Help</namespace>
+      <namespace key="13" case="first-letter">Help talk</namespace>
+      <namespace key="14" case="first-letter">Category</namespace>
+      <namespace key="15" case="first-letter">Category talk</namespace>
+      <namespace key="100" case="first-letter">Portal</namespace>
+      <namespace key="101" case="first-letter">Portal talk</namespace>
+      <namespace key="118" case="first-letter">Draft</namespace>
+      <namespace key="119" case="first-letter">Draft talk</namespace>
+      <namespace key="710" case="first-letter">TimedText</namespace>
+      <namespace key="711" case="first-letter">TimedText talk</namespace>
+      <namespace key="828" case="first-letter">Module</namespace>
+      <namespace key="829" case="first-letter">Module talk</namespace>
+      <namespace key="2300" case="case-sensitive">Gadget</namespace>
+      <namespace key="2301" case="case-sensitive">Gadget talk</namespace>
+      <namespace key="2302" case="case-sensitive">Gadget definition</namespace>
+      <namespace key="2303" case="case-sensitive">Gadget definition talk</namespace>
+    </namespaces>
+  </siteinfo>
+  <page>
+    <title>Finch</title>
+    <ns>0</ns>
+    <id>11711</id>
+    <revision>
+      <id>1186000588</id>
+      <parentid>1183008342</parentid>
+      <timestamp>2023-11-20T08:31:12Z</timestamp>
+      <contributor>
+        <username>Kweetal nl</username>
+        <id>15885869</id>
+      </contributor>
+      <comment>Euphonia elegantissima -&gt; Chlorophonia elegantissima</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="32674" xml:space="preserve">{{short description|Family of birds}}
+{{other uses}}
+{{Automatic taxobox
+| image = Pyrrhula pyrrhula female 2.jpg
+| image2 = Bullfinch male.jpg
+| image2_caption = [[Eurasian bullfinch]] (female above, male below)
+| taxon = Fringillidae
+| authority = [[William Elford Leach|Leach]], 1819
+| type_genus = ''[[Fringilla]]''
+| type_genus_authority = [[Carl Linnaeus|Linnaeus]], 1758
+| subdivision_ranks = Subfamilies
+| subdivision = [[Fringillinae]]&lt;br/&gt;[[Carduelinae]]&lt;br /&gt;[[Euphoniinae]]
+}}
+
+The '''true finches''' are small to medium-sized [[passerine]] [[bird]]s in the [[family (biology)|family]] '''Fringillidae'''. Finches generally have stout conical bills adapted for eating seeds and nuts and often have colourful plumage. They occupy a great range of habitats where they are usually resident and do not migrate. They have a worldwide native distribution except for Australia and the polar regions. The family Fringillidae contains more than two hundred species divided into fifty [[genera]]. It includes the [[Canary bird|canaries]], [[Siskin|siskins]], [[redpolls]], [[Serin|serins]], [[Grosbeak#Grosbeak finches|grosbeaks]] and [[Euphonia|euphonias]], as well as the morphologically divergent [[Hawaiian honeycreeper|Hawaiian honeycreepers]].
+
+Many birds in other families are also commonly called "finches". These groups include the [[estrildid finch]]es ([[Estrildidae]]) of the Old World tropics and [[Australia]]; some members of the Old World [[bunting (bird)|bunting]] family ([[Emberizidae]]) and the [[New World sparrow]] family ([[Passerellidae]]); and the [[Darwin's finches]] of the [[Galapagos]] islands, now considered members of the [[tanager]] family ([[Thraupidae]]).&lt;ref name = nc7393&gt;Newton (1973), Clement ''et al.'' (1993)&lt;/ref&gt;
+
+Finches and canaries were used in the UK, US and Canada in the [[coal mining]] industry to detect [[carbon monoxide]] from the eighteenth to twentieth century. This practice ceased in the UK in 1986.&lt;ref&gt;{{cite magazine |last1=Eschener |first1=Kat |title=The Story of the Real Canary in the Coal Mine |url=https://www.smithsonianmag.com/smart-news/story-real-canary-coal-mine-180961570/ |access-date=11 June 2018 |magazine=Smithsonian |date=30 December 2016}}&lt;/ref&gt;
+
+==Systematics and taxonomy==
+The name Fringillidae for the finch [[family (biology)|family]] was introduced in 1819 by the English zoologist [[William Elford Leach]] in a guide to the contents of the [[British Museum]].&lt;ref&gt;{{ cite book | last=Leach | first=William Elford | author-link=William Elford Leach  | year=1819 | chapter=Eleventh Room | title=Synopsis of the Contents of the British Museum | location=London | publisher=British Museum | edition=15th | pages=63-68 [65] | url=https://books.google.com/books?id=YSlhAAAAcAAJ&amp;pg=PA65 }} Although the name of the author is not specified in the document, Leach was the Keeper of Zoology at the time.&lt;/ref&gt;&lt;ref&gt;{{cite book | last=Bock | first=Walter J. | author-link=Walter Joseph Bock | year=1994 | title=History and Nomenclature of Avian Family-Group Names | series=Bulletin of the American Museum of Natural History | volume= Number 222 | publisher=American Museum of Natural History | location=New York | pages=156, 245 | url=http://digitallibrary.amnh.org/handle/2246/830 }}&lt;!--Linked page allows download of the 48MB pdf--&gt;&lt;!-- Bock cites the 17th edition from 1820 but the name was included in the 15th edition published in 1819--&gt;&lt;/ref&gt; The taxonomy of the family, in particular the cardueline finches, has a long and complicated history. The study of the relationship between the [[taxa]] has been confounded by the recurrence of similar morphologies due to the [[convergent evolution|convergence]] of species occupying similar niches.&lt;ref name=Zuccon2012/&gt; In 1968 the American ornithologist [[Raymond Andrew Paynter, Jr.]] wrote:
+&lt;blockquote&gt;
+Limits of the genera and relationships among the species are less understood – and subject to more controversy – in the carduelines than in any other species of passerines, with the possible exception of the estrildines [waxbills].&lt;ref&gt;{{ cite book | editor-last=Paynter | editor-first=Raymond A. Jnr. | year=1968 | title=Check-list of birds of the world, Volume 14 | volume=14 | publisher=Museum of Comparative Zoology | place=Cambridge, Massachusetts | page=207 | url=https://www.biodiversitylibrary.org/page/14481408 | url-status=live | archive-url=https://web.archive.org/web/20150715113413/http://biodiversitylibrary.org/page/14481408 | archive-date=2015-07-15 }}&lt;/ref&gt;
+&lt;/blockquote&gt;
+Beginning around 1990 a series of phylogenetic studies based on [[Mitochondrion|mitochondrial]] and nuclear DNA sequences resulted in substantial revisions in the taxonomy. Several groups of birds that had previously been assigned to other families were found to be related to the finches. The [[Neotropical]] ''[[Euphonia]]'' and the ''Chlorophonia'' were formerly placed in the tanager family [[Thraupidae]] due to their similar appearance but analysis of mitochondrial DNA sequences revealed that both genera were more closely related to the finches. They are now placed in a separate subfamily Euphoniinae within the Fringillidae.&lt;ref&gt;{{cite journal | last1=Banks | first1=Richard C. | last2=Cicero | first2=Carla | last3=Dunn | first3=Jon L. | last4=Kratter | first4=Andrew W. | last5=Rasmussen | first5=Pamela C. | last6=Remsen  | first6=J.V. Jr. | last7=Rising | first7=James D. | last8=Stotz | first8=Douglas F. | year=2003 | title=Forty-fourth supplement to the ''American Ornithologists' Union Check-List of North American Birds'' | journal=The Auk | volume=120 | issue=3 | pages=923–931 | doi=10.1642/0004-8038(2003)120[0923:FSTTAO]2.0.CO;2 | s2cid=86031929 | url=https://zenodo.org/record/1236353 }}&lt;/ref&gt;&lt;ref name=ioc&gt;{{cite web | editor1-last=Gill | editor1-first=Frank | editor2-last=Donsker | editor2-first=David | title=Finches, euphonias | work=World Bird List Version 5.3 | url=http://www.worldbirdnames.org/bow/finches/ | publisher=International Ornithologists' Union | access-date=23 July 2015 | url-status=live | archive-url=https://web.archive.org/web/20150626163458/http://www.worldbirdnames.org/bow/finches/ | archive-date=26 June 2015 }}&lt;/ref&gt; The [[Hawaiian honeycreeper]]s were at one time placed in their own family, Drepanididae but were found to be closely related to the ''[[Carpodacus]]'' rosefinches and are now placed within the Carduelinae subfamily.&lt;ref name=Zuccon2012&gt;{{cite journal | last1=Zuccon | first1=Dario | last2=Prŷs-Jones | first2=Robert | last3=Rasmussen | first3=Pamela C. | last4=Ericson | first4=Per G.P. | date=February 2012 | title=The phylogenetic relationships and generic limits of finches (Fringillidae) | journal=Molecular Phylogenetics and Evolution | volume=62 | issue=2 | pages=581–596 | doi=10.1016/j.ympev.2011.10.002 | url=http://www.nrm.se/download/18.9ff3752132fdaeccb6800010935/Zuccon%20et%20al%202012.pdf | pmid=22023825 | url-status=live | archive-url=https://web.archive.org/web/20150610193317/http://www.nrm.se/download/18.9ff3752132fdaeccb6800010935/Zuccon%20et%20al%202012.pdf | archive-date=2015-06-10 }}&lt;/ref&gt; The three largest genera, ''[[Carpodacus]]'', ''[[Carduelis]]'' and ''[[Serinus]]'' were found to be [[polyphyletic]].&lt;ref name=Zuccon2012/&gt;&lt;ref&gt;{{cite journal | last1=Arnaiz-Villena | first1=A. | last2=Guillén | first2=J. | last3=Ruiz-del-Valle | first3=V. | last4=Lowy | first4=E. | last5=Zamora | first5=J. | last6=Varela | first6=P. | last7=Stefani | first7=D. | last8=Allende | first8=L.M. | date=July 2001 | title=Phylogeography of crossbills, bullfinches, grosbeaks, and rosefinches | journal=Cellular and Molecular Life Sciences | volume=58 | issue=8 | pages=1159–1166 | doi=10.1007/PL00000930 | pmid=11529508| s2cid=6241573 }}&lt;/ref&gt;&lt;ref&gt;{{ cite journal | last1=Nguembock | first1=B. | last2=Fjeldså | first2=J. | last3=Couloux | first3=A. | last4=Pasquet | first4=E. | date=May 2009 | title=Molecular phylogeny of Carduelinae (Aves, Passeriformes, Fringillidae) proves polyphyletic origin of the genera ''Serinus'' and ''Carduelis'' and suggests redefined generic limits | journal= Molecular Phylogenetics and Evolution | volume=51 | issue=2 | pages=169–181 | doi=10.1016/j.ympev.2008.10.022 | pmid=19027082}}&lt;/ref&gt; Each was split into [[monophyletic]] genera. The American rosefinches were moved from ''Carpodacus'' to ''[[Haemorhous]]''. ''Carduelis'' was split by moving the greenfinches to ''[[Chloris (bird)|Chloris]]'' and a large clade into ''[[Spinus (genus)|Spinus]]'' leaving just three species in the original genus. Thirty seven species were moved from ''Serinus'' to ''[[Crithagra]]'' leaving eight species in the original genus.&lt;ref name=ioc/&gt; Today the family Fringillidae is divided into three [[subfamilies]], the [[Fringillinae]] containing a single [[genus]] with the chaffinches, the [[Carduelinae]] containing 183 species divided into 49 genera, and the [[Euphoniinae]] containing the ''Euphonia'' and the ''[[Chlorophonia]]''.&lt;ref name=Zuccon2012/&gt;
+
+[[File:Euphonia laniirostris (Eufonia gorgiamarilla) - Macho (14010810322).jpg|thumb|Euphonias, like this [[thick-billed euphonia]], were once treated as [[tanager]]s instead of finches.]]
+
+Although [[Przewalski's finch|Przewalski's "rosefinch"]] (''Urocynchramus pylzowi'') has ten [[Flight feather#Primaries|primary flight feathers]] rather than the nine primaries of other finches, it was sometimes classified in the Carduelinae. It is now assigned to a distinct family, Urocynchramidae, monotypic as to genus and species, and with no particularly close relatives among the [[Passeroidea]].&lt;ref name=ioc/&gt;&lt;ref&gt;{{cite journal |last=Groth |first=J. |date=July 2000 |title=Molecular evidence for the systematic position of ''Urocynchramus pylzowi'' |journal=The Auk |volume=117 |issue=3 |pages=787–792 |doi=10.1642/0004-8038(2000)117[0787:MEFTSP]2.0.CO;2 |jstor=4089604 |s2cid=86164717 |url=http://sora.unm.edu/node/26265 |url-status=live |archive-url=https://web.archive.org/web/20140225071438/https://sora.unm.edu/node/26265 |archive-date=2014-02-25 |doi-access=free }}&lt;/ref&gt;
+
+{{Cladogram|title=Finch phylogeny
+|caption=Cladogram based on the analysis by Zuccon and colleagues published in 2012,&lt;ref name=Zuccon2012/&gt; Hawaiian honeycreeper phylogeny based on Lerner and colleagues, 2011&lt;ref name=":0"&gt;{{Cite journal|date=2011-11-08|title=Multilocus Resolution of Phylogeny and Timescale in the Extant Adaptive Radiation of Hawaiian Honeycreepers|journal=Current Biology|language=en|volume=21|issue=21|pages=1838–1844|doi=10.1016/j.cub.2011.09.039|issn=0960-9822|doi-access=free|last1=Lerner|first1=Heather R.L.|last2=Meyer|first2=Matthias|last3=James|first3=Helen F.|last4=Hofreiter|first4=Michael|last5=Fleischer|first5=Robert C.|pmid=22018543}}&lt;/ref&gt; and Pratt (2014).&lt;ref name=":1"&gt;{{Cite web|title=A consensus taxonomy for the Hawaiian honeycreepers » Malama Mauna Kea Library Catalog|url=https://sites01.lsu.edu/wp/mnspapers/files/2014/10/85.pdf |archive-url=https://web.archive.org/web/20150919081759/http://sites01.lsu.edu/wp/mnspapers/files/2014/10/85.pdf |archive-date=2015-09-19 |url-status=live|access-date=2022-06-28|website=lsu.edu}}&lt;/ref&gt; Genera or clades with question marks (?) are of controversial or uncertain taxonomic placement. The rosefinches genus ''Carpodacus'' is expanded to include the [[common rosefinch]] as suggested by Tietze and colleagues&lt;ref&gt;{{cite journal | last1=Tietze | first1=D.T. | last2=Päckert | first2=M. | last3=Martens | first3=J. | last4=Lehmann  | first4=H. | last5=Sun | first5=Y.-H. | date=September 2013 | title=Complete phylogeny and historical biogeography of true rosefinches (Aves: ''Carpodacus'') | journal=Zoological Journal of the Linnean Society | volume=169 | pages=215–234 | doi=10.1111/zoj.12057 | doi-access=free }}&lt;/ref&gt; and adopted by the [[International Ornithological Committee]].&lt;ref name=ioc/&gt;
+|align=left
+|cladogram={{Cladex| style=font-size:90%;line-height:100%;width:600px;
+   |1={{clade
+      |label1=[[Fringillinae]]
+      |1= ''[[Fringilla]]'' chaffinches
+      |2={{clade
+         |label1=[[Euphoniinae]] 
+         |1={{clade
+         |1= ''[[Chlorophonia]]'', chlorophonias and some euphonias
+         |2= ''[[Euphonia]]'' true euphonias
+         }}
+         |label2=[[Carduelinae]]
+         |2={{clade
+               |1={{clade
+                  |1= ''[[Mycerobas]]'' Asian grosbeaks
+                  |2={{clade 
+                     |1=''[[Hesperiphona]]'' American grosbeaks
+                     |2={{clade
+                        |1=''[[Coccothraustes]]'' hawfinch
+                        |2=''[[Eophona]]'' Oriental grosbeaks
+                     }}
+                  }}
+                 }}
+               |2={{clade
+                  |1={{clade
+                     |1= ''[[Carpodacus]]'' Eurasian rosefinches
+                     |label2=Hawaiian |sublabel2=honeycreepers
+                   |2={{clade
+     |1={{extinct}}''[[Melamprosops]]'' the extinct poʻouli
+     |2={{clade
+           |1={{clade
+                |1=''[[Paroreomyza]]'' [[alauahio|ʻalauahios]] and the extinct [[kākāwahie]]
+                |label2=?
+                |2=''[[Oreomystis]]'' ʻakikiki
+                 }}
+           |2={{clade
+               |1={{clade
+                |1={{clade
+                         |1=''[[Loxioides]]'' palila
+                         |label2=?
+                         |2={{extinct}}''[[Rhodacanthis]]'' the extinct koa-finches
+                         |label3=?
+                         |3={{extinct}}''[[Chloridops]]'' the extinct Hawaiian grosbeaks
+                         |4=''[[Telespiza]]'' [[Laysan finch|Laysan]] &amp; [[Nihoa finch|Nihoa finches]]
+                }}
+               |label2=?
+               |2={{clade
+                    |1=''[[Psittirostra]]''  the possibly extinct ʻōʻū
+                    |2={{extinct}}''[[Dysmorodrepanis]]'' the extinct Lanai hookbill
+               }}
+     }}
+                |2={{clade
+                         |1= {{clade
+                              |1={{extinct}}''[[Ciridops]]'' the extinct ʻula-ʻai-hāwane
+                               |2={{clade
+                               |1=''[[Drepanis]]'' [[iiwi |ʻiʻiwi]] and the extinct [[mamo|mamos]]
+                               |2={{clade
+                                     |1=''[[Palmeria (bird)|Palmeria]]'' ʻākohekohe
+                                     |2=''[[Himatione]]'' [[apapane|ʻapapane ]] and the extinct [[Laysan honeycreeper]]
+                               }}
+                         }}
+                    }}
+                        |2={{clade
+                              |1={{clade
+                                   |1={{clade
+                                    |1=''[[Hemignathus]]'' [[akiapolaau|ʻakiapōlāʻau]] and the possibly extinct [[nukupuʻu|nukupuʻus]]
+                                    |label2=?
+                                    |2={{extinct}}''[[Akialoa]]'' the extinct ʻakialoas
+}}
+                                    |2=''[[Pseudonestor]]'' Maui parrotbill or kiwikiu
+                              }}
+                              |2={{clade
+                                   |label1=?
+                                   |1={{extinct}}''[[Viridonia]]'' the extinct greater ʻamakihi (could fall anywhere within this clade)
+                                   |2=''[[Magumma]]'' ʻanianiau
+                                   |3={{clade
+                                           |1=''[[Loxops]]'' [[akepa|'akepas]], [[akekee|ʻakekeʻe]], and [[ʻalawī]]
+                                           |2=''[[Chlorodrepanis]]'' lesser ʻamakihis
+                                    }}
+                                }}
+                          }}
+}}
+}}
+}}
+}}
+}}
+                
+                  |2={{clade
+                     |1={{clade
+                        |1={{clade
+                           |1= ''[[Pinicola]]'' pine grosbeak
+                           |2= ''[[Pyrrhula]]'' bullfinches
+                           }}
+                        |2={{clade
+                           |1={{clade
+                              |1= ''[[Rhodopechys]]'' crimson-winged finches
+                              |2= ''[[Bucanetes]]'' [[trumpeter finch|trumpeter]] and [[Mongolian finch]]
+                              }}
+                           |2={{clade
+                              |1={{clade
+                                 |1=''[[Agraphospiza]]'' Blanford's rosefinch
+                                 |2={{clade
+                                    |1= ''[[Callacanthis]]'' spectacled finch
+                                    |2= ''[[Pyrrhoplectes]]'' golden-naped finch
+                                    }}
+                                 }}
+                              |2={{clade
+                                 |1= ''[[Procarduelis]]'' dark-breasted rosefinch
+                                 |2= ''[[Leucosticte]]'' mountain finches
+                                 }}
+                              }}
+                           }}
+                        }}
+                     |2={{clade
+                        |1= ''[[Haemorhous]]'' North American rosefinches
+                        |2={{clade
+                           |1={{clade
+                              |1={{clade
+                                  |1= ''[[Rhodospiza]]'' desert finch
+                                  |2= ''[[Rhynchostruthus]]'' golden-winged grosbeaks
+                                  }}
+                              |2= ''[[Chloris (bird)|Chloris]]'' greenfinches
+                              }}
+                           |2={{clade
+                              |1={{clade
+                                 |1= ''[[Linurgus]]'' oriole finch
+                                 |2= ''[[Crithagra]]'' African canaries, serins and siskins
+                                 }}
+                              |2={{clade
+                                 |1={{clade
+                                     |1= ''[[Linaria (bird)|Linaria]]'' [[twite]] and linnets
+                                     |2={{clade
+                                        |1= ''[[Redpoll|Acanthis]]'' redpolls
+                                        |2= ''[[Loxia]]'' crossbills
+                                        }}
+                                     }}
+                                 |2={{clade
+                                    |1={{clade
+                                       |1= ''[[Chrysocorythus]]'' mountain serin
+                                       |2= ''[[Carduelis]]'' [[European goldfinch]] etc
+                                       }}
+                                    |2={{clade
+                                       |1= ''[[Serinus]]'' [[European serin]], [[Atlantic canary]], etc
+                                       |2= ''[[Spinus (genus)|Spinus]]''  American siskins &amp; goldfinches, [[Eurasian siskin]] and [[Tibetan serin]]
+                                       }}
+                                    }}
+                                 }}
+                              }}
+                           }}
+                        }}
+                      }}
+                }}
+          }}
+      }}
+   }}
+}}
+}}
+{{Clear}}
+
+===Fossil record===
+[[Fossil]] remains of true finches are rare, and those that are known can mostly be assigned to extant [[genera]] at least. Like the other Passeroidea families, the true finches seem to be of roughly [[Middle Miocene]] origin, around 20 to 10 [[million years ago]] (Ma). An unidentifable finch fossil from the [[Messinian]] [[European land mammal age|age]], around 12 to 7.3 [[million years ago]] (Ma) during the [[Late Miocene]] subepoch, has been found at [[Polgárdi]] in [[Hungary]].&lt;ref&gt;Hír ''et al.'' (2001), Mlíkovský (2002)&lt;/ref&gt;&lt;ref&gt;{{cite journal |last1=Zamora |first1=Jorge |last2=Lowy |first2=E. |last3=Ruiz-del-Valle |first3=V. |last4=Moscoso |first4=J. |last5=Serrano-Vela |first5=J. I. |last6=Rivero-de-Aguilar |first6=J. |last7=Arnaiz-Villena |first7=A. |title=Rhodopechys obsoleta (desert finch): a pale ancestor of greenfinches according to molecular phylogeny |journal=J Ornithol |date=July 2006 |volume=147 |pages=448–56 |url=https://www.novapublishers.com/catalog/downloadOA.php?order=1&amp;access=true |doi=10.1007/s10336-005-0036-2 |s2cid=8771417 |url-status=dead |archive-url=https://web.archive.org/web/20130703010648/https://www.novapublishers.com/catalog/downloadOA.php?order=1&amp;access=true |archive-date=2013-07-03 |access-date=2013-03-07 }}&lt;/ref&gt;&lt;ref&gt;{{cite book |last1=Arnaiz-Villena |first1=A. |last2=Gómez-Prieto |first2=P. |last3=Ruiz-de-Valle |first3=V. |chapter=Phylogeography of finches and sparrows |publisher=Nova Science Publishers |title=Animal Genetics |year=2009 |isbn=978-1-60741-844-3 |chapter-url=https://www.novapublishers.com/catalog/downloadOA.php?order=1&amp;access=true&amp;osCsid=578391717583ba2180ffa42bf304e1f6 |url-status=dead |archive-url=https://web.archive.org/web/20120902141846/https://www.novapublishers.com/catalog/downloadOA.php?order=1&amp;access=true&amp;osCsid=f7d95dd4e10269d6823050c20fe2bf4e |archive-date=2012-09-02 }}&lt;/ref&gt;
+
+==Description==
+The smallest "classical" true finches are the [[Andean siskin]] (''Spinus spinescens'') at as little as 9.5&amp;nbsp;cm (3.8&amp;nbsp;in) and the [[lesser goldfinch]] (''Spinus psaltria'') at as little as {{convert|8|g|oz|abbr=on}}. The largest species is probably the [[collared grosbeak]] (''Mycerobas affinis'') at up to {{convert|24|cm|in|abbr=on}} and {{convert|83|g|oz|abbr=on}}, although larger lengths, to {{convert|25.5|cm|in|abbr=on}} in the [[pine grosbeak]] (''Pinicola enucleator''), and weights, to {{convert|86.1|g|oz|abbr=on}} in the [[evening grosbeak]] (''Hesperiphona vespertina''), have been recorded in species which are slightly smaller on average.&lt;ref name="Clement"&gt;''Finches and Sparrows'' by Peter Clement. Princeton University Press (1999). {{ISBN|978-0691048789}}.&lt;/ref&gt;&lt;ref name = "CRC"&gt;''CRC Handbook of Avian Body Masses'' by John B. Dunning Jr. (Editor). CRC Press (1992), {{ISBN|978-0-8493-4258-5}}.&lt;/ref&gt; They typically have strong, stubby [[beak]]s, which in some species can be quite large; however, [[Hawaiian honeycreeper]]s are famous for the wide range of bill shapes and sizes brought about by [[adaptive radiation]]. All true finches have 9 primary [[remiges]] and 12 [[rectrices]]. The basic [[plumage]] colour is brownish, sometimes greenish; many have considerable amounts of black, while white plumage is generally absent except as wing-bars or other signalling marks. Bright yellow and red [[carotenoid]] [[pigment]]s are commonplace in this family, and thus blue [[structural colour]]s are rather rare, as the yellow pigments turn the blue color into green. Many, but by no means all true finches have strong [[sexual dichromatism]], the females typically lacking the bright carotenoid markings of males.&lt;ref name = nc7393 /&gt;
+
+==Distribution and habitat==
+[[File:American Goldfinch-27527.jpg|thumb|[[American goldfinch]] (''Spinus tristis'') male (left) and female (right) in [[Johnston County, North Carolina|Johnston County]], [[North Carolina]], USA]]
+The finches have a near-global distribution, being found across the Americas, Eurasia and Africa, as well as some island groups such as the Hawaiian islands. They are absent from Australasia, Antarctica, the Southern Pacific and the islands of the Indian Ocean, although some European species have been widely [[introduced species|introduced]] in Australia and New Zealand.
+
+Finches are typically inhabitants of well-wooded areas, but some can be found on mountains or even in [[desert]]s.
+
+==Behaviour==
+The finches are primarily [[granivorous]], but [[Euphoniinae|euphoniines]] include considerable amounts of [[arthropod]]s and [[berries]] in their diet, and Hawaiian honeycreepers [[evolution|evolve]]d to utilize a wide range of food sources, including [[nectar]]. The diet of Fringillidae [[nestling]]s includes a varying amount of small arthropods. True finches have a bouncing flight like most small [[passerine]]s, alternating bouts of flapping with gliding on closed wings. Most sing well and several are commonly seen [[cagebird]]s; foremost among these is the [[domestication|domesticated]] [[Domestic Canary|canary]] (''Serinus canaria domestica''). The nests are basket-shaped and usually built in trees, more rarely in bushes, between rocks or on similar substrate.&lt;ref name = nc7393 /&gt;
+
+==List of genera==
+The family Fringillidae contains 235 species divided into 50 genera and three subfamilies. The subfamily [[Carduelinae]] includes 18 extinct Hawaiian honeycreepers and the extinct [[Bonin grosbeak]].&lt;ref name=ioc/&gt; See [[List of Fringillidae species]] for further details.
+
+'''Subfamily Fringillinae'''
+* ''[[Fringilla]]'' – 5 species of chaffinch, 2 species of blue chaffinch, and the [[brambling]]
+'''Subfamily Carduelinae'''
+* ''[[Mycerobas]]'' – 4 Palearctic [[grosbeak]]s
+* ''[[Coccothraustes]]'' – 3 species
+* ''[[Eophona]]'' – 2 oriental grosbeaks, the [[Chinese grosbeak|Chinese]] and the [[Japanese grosbeak]]
+* ''[[Pinicola]]'' – [[pine grosbeak]]
+* ''[[Pyrrhula]]'' – 8 bullfinch species
+* ''[[Rhodopechys]]'' – 2 species, the [[Asian crimson-winged finch]] and the [[African crimson-winged finch]]
+* ''[[Bucanetes]]'' – [[trumpeter finch|trumpeter]] and the [[Mongolian finch]]
+* ''[[Agraphospiza]]'' – [[Blanford's rosefinch]]
+* ''[[Callacanthis]]'' – [[spectacled finch]]
+* ''[[Pyrrhoplectes]]'' – [[golden-naped finch]]
+* ''[[Procarduelis]]'' – [[dark-breasted rosefinch]]
+* ''[[Leucosticte]]'' – 6 species of mountain and rosy finches
+* ''[[Carpodacus]]'' – 28 [[Palearctic]] rosefinch species
+* [[Hawaiian honeycreeper]] group (tribe Drepanidini)
+**''Melamprosops'' – contains a single extinct species, the [[po'ouli]]
+** ''[[Paroreomyza]]'' – 3 species, the [[Oahu alauahio]], the [[Maui alauahio]] and the extinct [[kakawahie]]
+** ''Oreomystis'' – [[akikiki]]
+** ''[[Telespiza]]'' – 4 species, the [[Laysan finch]], the [[Nihoa finch]], and 2 prehistoric species
+** ''[[Loxioides]]'' – 2 species, the [[palila]] and a prehistoric species
+** ''[[Rhodacanthis]]'' – 2 recently extinct species, the [[lesser koa finch|lesser]] and the [[greater koa finch]], and 2 prehistoric species
+** ''Chloridops'' – extinct species, the [[Kona grosbeak]]
+** ''Psittirostra'' – [[ʻŌʻū|ou]]
+** ''Dysmorodrepanis'' – extinct species, the [[Lanai hookbill]]
+** ''[[Drepanis]]'' – 2 extinct species, the [[Hawaii mamo]] and the [[black mamo]], and the extant [[iiwi]]
+** ''[[Ciridops]]'' – single recently extinct species, the [[Ula-ai-hawane]], and 3 prehistoric species
+** ''[[Palmeria (bird)|Palmeria]]'' – contains a single species, the [[akohekohe]]
+** ''[[Himatione]]'' – 2 species, the [[apapane]] and the extinct [[Laysan honeycreeper]]
+** ''Viridonia'' – single extinct species, the [[greater amakihi]]
+** ''[[Akialoa]]'' – 4 recently extinct species, and 2 prehistoric species
+** ''[[Hemignathus]]'' – 4 species, only one of which is extant&lt;!--HBW alive states that Maui nukupuʻu and Kauaʻi nukupuʻu are probably both extinct. IOC 5.3 doesn't indicate this. The Giant nukupu‘u became extinct in the prehistoric period and is not included on the IOC list--&gt;
+** ''[[Pseudonestor]]'' – [[Maui parrotbill]]
+** ''[[Magumma]]'' – anianiau
+** ''[[Loxops]]'' – 5 species, of which one is extinct
+** ''[[Chlorodrepanis]]'' – 3 species, the [[Hawaii amakihi|Hawaii]], [[Oahu amakihi|Oahu]] and [[Kauai amakihi]]
+* ''[[Haemorhous]]'' – 3 North America rosefinches
+* ''[[Chloris (bird)|Chloris]]'' – 6 greenfinches
+* ''[[Rhodospiza]]'' – [[desert finch]]
+* ''[[Rhynchostruthus]]'' – 3 golden-winged grosbeaks
+* ''[[Linurgus]]'' – [[oriole finch]]
+* ''[[Crithagra]]'' – 37 species of canaries, serins and siskins from Africa and the Arabian Peninsula
+* ''[[Linaria (bird)|Linaria]]'' – 4 species including the [[twite]] and three linnets
+* ''[[Redpoll|Acanthis]]'' – 3 redpolls
+* ''[[Loxia]]'' – 6 crossbills
+* ''[[Chrysocorythus]]'' – 2 species
+* ''[[Carduelis]]'' – 3 species including the [[European goldfinch]]
+* ''[[Serinus]]'' – 8 species including the [[European serin]]
+* ''[[Spinus (genus)|Spinus]]'' – 20 species including the North American goldfinches and the [[Eurasian siskin]]
+'''Subfamily Euphoniinae'''
+* ''[[Euphonia]]'' – 27 species all with euphonia in their English name
+* ''[[Chlorophonia]]'' – 5 species all with chlorophonia in their English name
+
+==Gallery==
+&lt;gallery mode="packed"&gt;
+File:Coccothraustes coccothraustes 1 (Marek Szczepanek).jpg|[[Hawfinch]] (''Coccothraustes coccothraustes''), one of the [[Holarctic]] [[grosbeak]]s
+File:Cassin's Finch (male).jpg|[[Cassin's finch]] (''Haemorhous cassinii''), an American rosefinch
+File:Carpodacus roseus.jpg|[[Pallas' rosefinch]] (''Carpodacus roseus''), a true rosefinch
+File:PINTASSILGO ( Carduelis magellanica ).jpg|[[Hooded siskin]] (''Spinus magellanicus'')
+File:Vestiaria coccinea -Hawaii -adult-8 (4).jpg|[[ʻIʻiwi]] (''Drepanis coccinea''), a [[Hawaiian honeycreeper]]
+File:Euphonia violacea-2.jpg|Male [[violaceous euphonia]] (''Euphonia violacea'')
+File:Carduelis carduelis close up.jpg|[[European goldfinch]] (''Carduelis carduelis'')
+File:Chloris chloris.jpg|[[European greenfinch]] (''Chloris chloris'')
+File:Pinzón azul de Gran Canaria (macho), M. A. Peña.jpg|[[Gran Canaria blue chaffinch]] (''Fringilla polatzeki'')
+File:Teidefink.jpg|[[Tenerife blue chaffinch]] (''Fringilla teydea'')
+File:Euphonia elegantissima.jpg|[[Elegant euphonia]] (''Chlorophonia elegantissima'')
+File:Desert Finch - Uzbekistan S4E7626-2 (23039952955).jpg|[[Desert finch]] (''Rhodospiza obsoleta'')
+File:Pine Grosbeak (Pinicola enucleator) (13667564073).jpg|[[Pine grosbeak]] (''Pinicola enucleator'') 
+File:Hesperiphona vespertina CT3.jpg|[[Evening grosbeak]] (''Hesperiphona vespertina'')
+File:Chloris spinoides.jpg|[[Yellow-breasted greenfinch]] (''Chloris spinoides'')
+File:Serinus flaviventris 2013 03 09.jpg|[[Yellow canary]] (''Crithagra flaviventris'')
+File:Streaky Seedeater, Ngorongoro Crater (8495906768).jpg|[[Streaky seedeater]] (''Crithagra striolata'')
+File:Fringilla coelebs moreletti.png|[[Azores chaffinch]] (''Fringilla coelebs moreletti'')
+&lt;/gallery&gt;
+
+==See also==
+*[[The Finch Society of Australia]]
+
+==References==
+{{Reflist|30em}}
+
+==Sources==
+* Clement, Peter; Harris, Alan &amp; Davis, John (1993): ''Finches and Sparrows: an identification guide''. [[Helm Identification Guides|Christopher Helm]], London. {{ISBN|0-7136-8017-2}}
+*{{cite journal|author1=Hír, János |author2=Kókay, József |author3=Venczel, Márton |author4=Gál, Erika |author5=Kessler, Eugén |year=2001|title= Elõzetes beszámoló a felsõtárkányi "Güdör-kert" n. õslénytani lelõhelykomplex újravizsgálatáról [A preliminary report on the revised investigation of the paleontological locality-complex "Güdör-kert" at Felsõtárkány, Northern Hungary]|journal=Folia Historico Naturalia Musei Matraensis|volume=25|pages= 41–64 |language=hu |url=http://www.matramuzeum.hu/e107_plugins/docrep_menu/docrep.php?0.getdoc.178.7.}}
+*{{cite journal |last1=Jønsson |first1=Knud A. |last2=Fjeldså |first2=Jon |year=2006 |title=A phylogenetic supertree of oscine passerine birds (Aves: Passeri) |journal=[[Zoologica Scripta|Zool. Scripta]] |volume=35 |issue=2 |pages=149–186 |doi=10.1111/j.1463-6409.2006.00221.x|s2cid=85317440 }}
+*{{cite journal |last1=Marten |first1=Jill A. |last2=Johnson |first2=Ned K. |year=1986 |title=Genetic relationships of North American cardueline finches |journal=[[Condor (journal)|Condor]] |volume=88 |issue=4 |pages=409–420 |url=http://sora.unm.edu/sites/default/files/journals/condor/v088n04/p0409-p0420.pdf |archive-url=https://web.archive.org/web/20140222162931/http://sora.unm.edu/sites/default/files/journals/condor/v088n04/p0409-p0420.pdf |archive-date=2014-02-22 |url-status=live |doi=10.2307/1368266|jstor=1368266 }}
+* Newton, Ian (1973): ''Finches'' (New Naturalist series). Taplinger Publishing. {{ISBN|0-8008-2720-1}}
+
+==External links==
+{{EB1911 Poster|Finch}}
+*[http://ibc.lynxeds.com/family/finches-fringillidae Internet Bird Collection.com: Finch videos, photos, and sounds]
+*[http://www.nfss.org National Finch and Softbill Society website] — ''organization promoting finch breeding''.
+*{{Cite NSRW|short=x|wstitle=Finch}}
+{{Commons category|position=left|Fringillidae}}
+
+{{Taxonbar|from=Q160835}}
+{{Authority control}}
+
+[[Category:Finches| ]]
+[[Category:Fringillidae| ]]
+[[Category:Miocene birds]]
+[[Category:Quaternary birds]]
+[[Category:Extant Miocene first appearances]]
+[[Category:Taxa named by William Elford Leach]]</text>
+      <sha1>skpd1r5h2ab2ku9kqh4laxds52t8ypp</sha1>
+    </revision>
+  </page>
+</mediawiki>
