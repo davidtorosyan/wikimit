@@ -62,6 +62,7 @@ AWS_SAM_STACK_NAME="wikimit-engine" python -m pytest tests/integration -v
 To run the step function locally (on Windows):
 ```ps1
 # prepare
+sam build --use-container
 sam local start-lambda
 
 # variables
@@ -69,7 +70,7 @@ $port="8083"
 $endpoint="http://localhost:$port"
 $region="us-west-1"
 $account="123456789012"
-$stateMachineName="StockTradingStateMachine"
+$stateMachineName="RevisionStateMachine"
 $stateMachineArn="arn:aws:states:${region}:${account}:stateMachine:${stateMachineName}"
 $executionName="test"
 $executionArn="arn:aws:states:${region}:${account}:execution:${stateMachineName}:${executionName}"
@@ -79,9 +80,8 @@ $functionArnRoot="arn:aws:lambda:${region}:${account}:function"
 docker run -p "${port}:${port}" --env-file tests/config/aws-stepfunctions-local-credentials.txt amazon/aws-stepfunctions-local
 
 # create
-$content = Get-Content -Path .\statemachine\stock_trader.asl.json -Raw
+$content = Get-Content -Path .\statemachine\revision.asl.json -Raw
 $content = $content -replace '\$\{([^}]+)Arn\}', ($functionArnRoot+':$1')
-$content = $content -replace '\$\{(DDBPutItem)\}', ($functionArnRoot+':$1')
 aws stepfunctions --endpoint $endpoint create-state-machine --name "$stateMachineName" --definition "$content" --role-arn "arn:aws:iam::${account}:role/DummyRole"
 
 # start
