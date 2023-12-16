@@ -85,7 +85,7 @@ $content = $content -replace '\$\{([^}]+)Arn\}', ($functionArnRoot+':$1')
 aws stepfunctions --endpoint $endpoint create-state-machine --name "$stateMachineName" --definition "$content" --role-arn "arn:aws:iam::${account}:role/DummyRole"
 
 # start
-aws stepfunctions --endpoint $endpoint start-execution --state-machine-arn $stateMachineArn --name $executionName
+aws stepfunctions --endpoint $endpoint start-execution --state-machine-arn $stateMachineArn --name $executionName --input '{"title":"Finch"}'
 
 # check
 aws stepfunctions --endpoint $endpoint describe-execution --execution-arn $executionArn

@@ -1,9 +1,4 @@
-from datetime import datetime
-from random import randint
-from uuid import uuid4
-
-
-def lambda_handler(event, context):
+def lambda_handler(event: dict, context: object):
     """Sample Lambda function which mocks the operation of selling a random number
     of shares for a stock.
 
@@ -22,4 +17,6 @@ def lambda_handler(event, context):
     ------
         dict: Object containing details of the stock selling transaction
     """
-    return {"has_new_revisions": True}
+    title: str | None = event.get("title")
+    url: str | None = event.get("url")
+    return {"has_new_revisions": False}
