@@ -59,6 +59,11 @@ To run integration tests (on unix/mac):
 AWS_SAM_STACK_NAME="wikimit-engine" python -m pytest tests/integration -v
 ```
 
+To run a smoke test:
+```sh
+sam local invoke -e tests/events/smoke.json
+```
+
 To run the step function locally (on Windows):
 ```ps1
 # prepare

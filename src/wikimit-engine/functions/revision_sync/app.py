@@ -1,4 +1,7 @@
-def lambda_handler(event: dict, context: object):
+from wiki import current_page_info
+
+
+def lambda_handler(event: dict, context: object):  # type: ignore
     """Sample Lambda function which mocks the operation of selling a random number
     of shares for a stock.
 
@@ -17,6 +20,10 @@ def lambda_handler(event: dict, context: object):
     ------
         dict: Object containing details of the stock selling transaction
     """
-    title: str | None = event.get("title")
-    url: str | None = event.get("url")
+    title: str | None = event.get("title")  # type: ignore
+    # url: str | None = event.get("url")
+
+    info = current_page_info(title)  # type: ignore
+    print(info)
+
     return {"has_new_revisions": False}
