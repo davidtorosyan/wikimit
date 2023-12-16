@@ -29,7 +29,7 @@ Not ready yet!
 
 Created `wikimit-engine` with [SAM CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/install-sam-cli.html), version 1.103.0, using this command:
 ```
-sam init --no-interactive --name=wikimit-engine --runtime python3.11 --dependency-manager pip --app-template hello-world --tracing --application-insights --structured-logging
+sam init --no-interactive --name=wikimit-engine --runtime python3.11 --dependency-manager pip --app-template step-functions-sample-app --tracing --application-insights --structured-logging
 ```
 
 Some useful commands:
