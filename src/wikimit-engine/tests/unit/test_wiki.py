@@ -1,5 +1,5 @@
 import responses
-from functions.revision_sync import wiki
+from functions.revision_sync.app import wiki
 from responses import _recorder
 
 MOCK_TITLE = "Finch"

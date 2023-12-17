@@ -1,7 +1,7 @@
 from typing import Any
 
-from sync import SyncRequest, sync
-from wiki import LANGUAGE_EN, SITE_WIKIPEDIA
+from .sync import SyncRequest, sync
+from .wiki import LANGUAGE_EN, SITE_WIKIPEDIA
 
 
 def lambda_handler(event: Any, context: object) -> Any:  # type: ignore

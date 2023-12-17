@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from wiki import current_page_info
+from .wiki import current_page_info
 
 
 @dataclass
