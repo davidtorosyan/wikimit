@@ -65,6 +65,11 @@ To run a smoke test:
 sam local invoke -e tests/events/smoke.json
 ```
 
+To send an event to an already running instance:
+```sh
+aws lambda invoke --function-name "RevisionSyncFunction" --endpoint-url http://127.0.0.1:3001 --no-sign-request --cli-binary-format raw-in-base64-out --payload file://tests/events/smoke.json tmp_output.txt
+```
+
 To run the step function locally (on Windows):
 ```ps1
 # prepare

@@ -53,8 +53,8 @@ def initialize(path: Path, info: PageInfo) -> RepoInfo:
     root = repo_root(path)
     if root == "":
         init(path)
-    elif root != path:
-        raise Exception(f"Path {path} is in a git repository, but is not the root")
+    else:
+        assert Path(root) == path
     # status
     assert is_clean(path)
     # files
