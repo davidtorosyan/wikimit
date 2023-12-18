@@ -43,11 +43,16 @@ def get_page_info(
 
 def get_revisions(
     page_info: PageInfo,
-    offset: str,
+    offset: str = "",
     limit: int = 5,
 ) -> list[Revision]:
     content = _export_page(
-        page_info.site, page_info.language, page_info.title, offset=offset, limit=limit
+        page_info.site,
+        page_info.language,
+        page_info.title,
+        current=False,
+        offset=offset,
+        limit=limit,
     )
     return _parse_revisions(content)
 
@@ -133,10 +138,11 @@ def _export_page(
         "title": "Special:Export",
         "pages": title,
         "action": "submit",
-        "curonly": current,
         "offset": offset,
         "limit": limit,
     }
+    if current:
+        params["curonly"] = 1
     response = requests.post(api_url, params=params)
     return response.content
 

@@ -9,6 +9,7 @@ MOCK_PAGE_INFO = wiki.PageInfo(
     id="some id",
     title=MOCK_TITLE,
     url=f"https://${MOCK_SITE}/wiki/some_title",
+    site=MOCK_SITE,
     language=MOCK_LANG,
     highest_known_revision_id="123",
     highest_known_revision_timestamp="2023-11-20T08:31:12Z",
@@ -18,7 +19,7 @@ MOCK_PAGE_INFO = wiki.PageInfo(
 def test_sync(mocker: MockFixture):
     # setup
     mock_wiki = mocker.patch(
-        "functions.revision_sync.app.sync.current_page_info",
+        "functions.revision_sync.app.sync.get_page_info",
         return_value=MOCK_PAGE_INFO,
     )
 
@@ -26,5 +27,5 @@ def test_sync(mocker: MockFixture):
     result = sync.sync(sync.SyncRequest(MOCK_SITE, MOCK_LANG, MOCK_TITLE))
 
     # verify
-    assert result.has_new_revisions == False
+    assert result.needs_sync == False
     mock_wiki.assert_called_once_with(MOCK_TITLE, MOCK_SITE, MOCK_LANG)

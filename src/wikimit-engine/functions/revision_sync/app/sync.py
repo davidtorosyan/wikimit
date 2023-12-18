@@ -34,7 +34,7 @@ def sync(request: SyncRequest) -> SyncResult:
     revisions = (
         get_revisions(
             page_info,
-            offset=repo_info.highest_known_revision_timestamp,
+            offset=repo_info.synced_revision_id,
             limit=SYNC_LIMIT,
         )
         if _needs_sync(page_info, repo_info)

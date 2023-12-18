@@ -460,4 +460,4 @@ responses:
     content_type: text/plain; charset=utf-8
     method: POST
     status: 200
-    url: https://en.wikipedia.org/w/index.php?title=Special%3AExport&pages=Finch&action=submit&curonly=True&offset=&limit=5
+    url: https://en.wikipedia.org/w/index.php?title=Special%3AExport&pages=Finch&action=submit&offset=&limit=5&curonly=1
