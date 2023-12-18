@@ -7,11 +7,11 @@ from dulwich.repo import Repo
 
 
 @dataclass
-class Commit:
+class CommitInfo:
     message: str
     author: str
     description: str
-    date: str
+    date: int
 
 
 def repo_root(cwd: Path) -> str:
@@ -52,12 +52,12 @@ def commit_initial(cwd: Path) -> None:
     porcelain.commit(str(cwd), message=b"Initial commit")  # type: ignore
 
 
-def git_commit(cwd: Path, commit: Commit) -> None:
-    full_message = commit.message + "\n\n" + commit.description
+def commit(cwd: Path, commit_info: CommitInfo) -> None:
+    full_message = commit_info.message + "\n\n" + commit_info.description
     Repo(str(cwd)).do_commit(  # type: ignore
         message=_encode(full_message),
-        author=_encode(commit.author),
-        commit_timestamp=_encode(commit.date),
+        author=_encode(commit_info.author),
+        author_timestamp=commit_info.date,
     )
 
 

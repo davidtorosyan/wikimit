@@ -21,7 +21,7 @@
             "Type": "Choice",
             "Choices": [
                 {
-                    "Variable": "$.has_new_revisions",
+                    "Variable": "$.needs_sync",
                     "BooleanEquals": true,
                     "Next": "Sync revisions"
                 }

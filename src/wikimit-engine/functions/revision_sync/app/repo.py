@@ -1,12 +1,19 @@
-import datetime
 import json
 from dataclasses import dataclass
 from pathlib import Path
 
-from .git import add, commit_initial, has_commits, init, is_clean, repo_root
+from .git import (
+    CommitInfo,
+    add,
+    commit,
+    commit_initial,
+    has_commits,
+    init,
+    is_clean,
+    repo_root,
+)
 from .serialize import convert_json
 from .text import LICENSE_CC_BY_SA, README_TEMPLATE
-from .wiki import PageInfo
 
 ARTICLE_NAME = "article.xml"
 INFO_NAME = "info.json"
@@ -27,25 +34,7 @@ class RepoInfo:
     last_sync: str
 
 
-def _current_time() -> str:
-    return datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
-
-
-def _init_sync_info(info: PageInfo) -> RepoInfo:
-    return RepoInfo(
-        id=info.id,
-        url=info.url,
-        title=info.title,
-        language=info.language,
-        highest_known_revision_id=info.highest_known_revision_id,
-        highest_known_revision_timestamp=info.highest_known_revision_timestamp,
-        synced_revision_id="",
-        synced_revision_timestamp="",
-        last_sync=_current_time(),
-    )
-
-
-def initialize(path: Path, info: PageInfo) -> RepoInfo:
+def initialize(path: Path, init_info: RepoInfo) -> RepoInfo:
     # existence
     if not path.exists():
         path.mkdir(parents=True)
@@ -64,8 +53,8 @@ def initialize(path: Path, info: PageInfo) -> RepoInfo:
     license_file = path / LICENSE_NAME
     if not has_commits(path):
         article_file.touch()
-        info_file.write_text(convert_json(_init_sync_info(info)))
-        readme_file.write_text(README_TEMPLATE.format(info.title, info.url))
+        info_file.write_text(convert_json(init_info))
+        readme_file.write_text(README_TEMPLATE.format(init_info.title, init_info.url))
         license_file.write_text(LICENSE_CC_BY_SA)
         add(path, article_file)
         add(path, info_file)
@@ -78,4 +67,19 @@ def initialize(path: Path, info: PageInfo) -> RepoInfo:
         assert readme_file.exists()
         assert license_file.exists()
     # info
-    return json.loads(info_file.read_text())
+    content = json.loads(info_file.read_text())
+    return RepoInfo(**content)
+
+
+def apply_commit(
+    path: Path, repo_info: RepoInfo, commit_info: CommitInfo, text: str
+) -> None:
+    article_file = path / ARTICLE_NAME
+    article_file.write_text(text)
+
+    info_file = path / INFO_NAME
+    info_file.write_text(convert_json(repo_info))
+
+    add(path, article_file)
+    add(path, info_file)
+    commit(path, commit_info)
