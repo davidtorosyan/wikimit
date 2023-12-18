@@ -24,5 +24,5 @@ def lambda_handler(event: Any, context: object) -> Any:  # type: ignore
         "newly_synced_revisions": result.newly_synced_revisions,
         "last_sync": result.last_sync,
         "needs_sync": result.needs_sync,
-        "synced_revision_id": result.synced_revision_id,
+        "synced_revision_timestamp": result.synced_revision_timestamp,
     }

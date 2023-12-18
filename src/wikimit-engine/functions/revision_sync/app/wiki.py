@@ -43,7 +43,7 @@ def get_page_info(
 
 def get_revisions(
     page_info: PageInfo,
-    offset: str = "",
+    offset_timestamp: str = "",
     limit: int = 5,
 ) -> list[Revision]:
     content = _export_page(
@@ -51,7 +51,7 @@ def get_revisions(
         page_info.language,
         page_info.title,
         current=False,
-        offset=offset,
+        offset=offset_timestamp,
         limit=limit,
     )
     return _parse_revisions(content)

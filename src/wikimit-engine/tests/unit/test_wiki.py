@@ -49,7 +49,7 @@ def test_get_revisions_1():
 def test_get_revisions_2():
     responses._add_from_file(file_path=MOCK_SMOKE_HISTORY_2_PATH)
     revisions = wiki.get_revisions(
-        MOCK_PAGE_INFO, offset=SMOKE_OFFSET_1, limit=SMOKE_LIMIT
+        MOCK_PAGE_INFO, offset_timestamp=SMOKE_OFFSET_1, limit=SMOKE_LIMIT
     )
     assert len(revisions) == SMOKE_LIMIT
     assert revisions[-1].timestamp == SMOKE_OFFSET_2
@@ -76,4 +76,6 @@ def record_smoke_history_2():
     """
     Run this function to record the responses for the smoke test.
     """
-    wiki.get_revisions(MOCK_PAGE_INFO, offset="2003-04-03T15:57:37Z", limit=SMOKE_LIMIT)
+    wiki.get_revisions(
+        MOCK_PAGE_INFO, offset_timestamp=SMOKE_OFFSET_1, limit=SMOKE_LIMIT
+    )

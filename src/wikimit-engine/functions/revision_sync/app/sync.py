@@ -25,7 +25,7 @@ class SyncResult:
     newly_synced_revisions: int
     last_sync: str
     needs_sync: bool
-    synced_revision_id: str
+    synced_revision_timestamp: str
 
 
 def sync(request: SyncRequest) -> SyncResult:
@@ -35,7 +35,7 @@ def sync(request: SyncRequest) -> SyncResult:
     revisions = (
         get_revisions(
             page_info,
-            offset=repo_info.synced_revision_id,
+            offset_timestamp=repo_info.synced_revision_timestamp,
             limit=SYNC_LIMIT,
         )
         if _needs_sync(page_info, repo_info)
@@ -50,7 +50,7 @@ def sync(request: SyncRequest) -> SyncResult:
         newly_synced_revisions=len(revisions),
         last_sync=updated_repo_info.last_sync,
         needs_sync=_needs_sync(page_info, updated_repo_info),
-        synced_revision_id=updated_repo_info.synced_revision_id,
+        synced_revision_timestamp=updated_repo_info.synced_revision_timestamp,
     )
 
 
