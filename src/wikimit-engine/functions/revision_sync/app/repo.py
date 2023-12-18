@@ -3,7 +3,7 @@ import json
 from dataclasses import dataclass
 from pathlib import Path
 
-from .git import add, commit_initial, has_commits, init, repo_root, status
+from .git import add, commit_initial, has_commits, init, is_clean, repo_root
 from .serialize import convert_json
 from .text import LICENSE_CC_BY_SA, README_TEMPLATE
 from .wiki import PageInfo
@@ -56,7 +56,7 @@ def initialize(path: Path, info: PageInfo) -> RepoInfo:
     elif root != path:
         raise Exception(f"Path {path} is in a git repository, but is not the root")
     # status
-    assert status(path) == ""
+    assert is_clean(path)
     # files
     article_file = path / ARTICLE_NAME
     info_file = path / INFO_NAME
@@ -67,10 +67,10 @@ def initialize(path: Path, info: PageInfo) -> RepoInfo:
         info_file.write_text(convert_json(_init_sync_info(info)))
         readme_file.write_text(README_TEMPLATE.format(info.title, info.url))
         license_file.write_text(LICENSE_CC_BY_SA)
-        add(path, ARTICLE_NAME)
-        add(path, INFO_NAME)
-        add(path, README_NAME)
-        add(path, LICENSE_NAME)
+        add(path, article_file)
+        add(path, info_file)
+        add(path, readme_file)
+        add(path, license_file)
         commit_initial(path)
     else:
         assert article_file.exists()
