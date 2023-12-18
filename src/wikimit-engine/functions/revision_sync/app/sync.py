@@ -67,6 +67,7 @@ def _init_repo_info(info: PageInfo) -> RepoInfo:
         id=info.id,
         url=info.url,
         title=info.title,
+        site=info.site,
         language=info.language,
         highest_known_revision_id=info.highest_known_revision_id,
         highest_known_revision_timestamp=info.highest_known_revision_timestamp,

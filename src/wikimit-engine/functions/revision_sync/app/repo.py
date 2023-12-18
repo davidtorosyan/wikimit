@@ -26,6 +26,7 @@ class RepoInfo:
     id: str
     url: str
     title: str
+    site: str
     language: str
     highest_known_revision_id: str
     highest_known_revision_timestamp: str
