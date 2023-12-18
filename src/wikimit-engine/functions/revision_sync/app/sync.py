@@ -25,6 +25,7 @@ class SyncResult:
     newly_synced_revisions: int
     last_sync: str
     needs_sync: bool
+    synced_revision_id: str
 
 
 def sync(request: SyncRequest) -> SyncResult:
@@ -40,18 +41,16 @@ def sync(request: SyncRequest) -> SyncResult:
         if _needs_sync(page_info, repo_info)
         else []
     )
-    print(page_info)
-    print(repo_info)
     updated_repo_info = repo_info
     for revision in revisions:
         commit_info = _to_commit_info(revision)
         updated_repo_info = _update_repo_info(updated_repo_info, revision)
         apply_commit(path, updated_repo_info, commit_info, revision.text)
-        print(updated_repo_info)
     return SyncResult(
         newly_synced_revisions=len(revisions),
         last_sync=updated_repo_info.last_sync,
         needs_sync=_needs_sync(page_info, updated_repo_info),
+        synced_revision_id=updated_repo_info.synced_revision_id,
     )
 
 
