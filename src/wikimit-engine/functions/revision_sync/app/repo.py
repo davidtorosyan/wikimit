@@ -33,6 +33,7 @@ class RepoInfo:
     synced_revision_id: str
     synced_revision_timestamp: str
     last_sync: str
+    synced_revisions: int
 
 
 def initialize(path: Path, init_info: RepoInfo) -> RepoInfo:

@@ -13,6 +13,7 @@ class PageInfo:
     language: str
     highest_known_revision_id: str
     highest_known_revision_timestamp: str
+    total_revisions: int
 
 
 @dataclass
@@ -68,6 +69,8 @@ def _parse_page_info(site: str, language: str, content: bytes) -> PageInfo:
     highest_id = _extract_text(revision, "id")
     highest_timestamp = _extract_text(revision, "timestamp")
 
+    total_revisions = 0  # TODO: get this elsewhere
+
     base_url = _compose_url(site, language)
     url = "{}/wiki/{}".format(base_url, title)
     return PageInfo(
@@ -78,6 +81,7 @@ def _parse_page_info(site: str, language: str, content: bytes) -> PageInfo:
         language=language,
         highest_known_revision_id=highest_id,
         highest_known_revision_timestamp=highest_timestamp,
+        total_revisions=total_revisions,
     )
 
 
@@ -151,7 +155,7 @@ def _compose_url(site: str, language: str) -> str:
     return f"https://{language}.{site}"
 
 
-def _has_child(node: Element, tag: str):
+def _has_child(node: Element, tag: str) -> bool:
     elems = node.getElementsByTagName(tag)
     return len(elems) > 0
 
@@ -160,14 +164,18 @@ def _find_node(doc: Document | Element, tag: str) -> Element:
     return doc.getElementsByTagName(tag)[0]
 
 
-def _extract_text(node: Element, tag: str):
+def _extract_text(node: Element, tag: str) -> str:
     elems = node.getElementsByTagName(tag)
     return _get_text(elems[0].childNodes) if elems else ""
 
 
-def _get_text(nodelist: list[Element]):
+def _get_text(nodelist: list[Element]) -> str:
     results: list[str] = []
     for node in nodelist:
         if node.nodeType == node.TEXT_NODE:
             results.append(node.data)  # type: ignore
     return "".join(results)
+
+
+def _extract_attribute(element: Element, attribute: str) -> str:
+    return element.getAttribute(attribute)

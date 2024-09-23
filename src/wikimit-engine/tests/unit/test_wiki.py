@@ -23,6 +23,7 @@ MOCK_PAGE_INFO = wiki.PageInfo(
     language=MOCK_LANG,
     highest_known_revision_id="1186000588",
     highest_known_revision_timestamp="2023-11-20T08:31:12Z",
+    total_revisions=100,
 )
 
 

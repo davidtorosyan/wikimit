@@ -5,16 +5,6 @@
         "Sync revisions": {
             "Type": "Task",
             "Resource": "${RevisionSyncFunctionArn}",
-            "Retry": [
-                {
-                    "ErrorEquals": [
-                        "States.TaskFailed"
-                    ],
-                    "IntervalSeconds": 15,
-                    "MaxAttempts": 5,
-                    "BackoffRate": 1.5
-                }
-            ],
             "Next": "Check status"
         },
         "Check status": {

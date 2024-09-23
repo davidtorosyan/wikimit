@@ -27,6 +27,8 @@ class SyncResult:
     last_sync: str
     needs_sync: bool
     synced_revision_timestamp: str
+    total_revisions: int
+    synced_revisions: int
 
 
 def sync(request: SyncRequest) -> SyncResult:
@@ -52,6 +54,8 @@ def sync(request: SyncRequest) -> SyncResult:
         last_sync=updated_repo_info.last_sync,
         needs_sync=_needs_sync(page_info, updated_repo_info),
         synced_revision_timestamp=updated_repo_info.synced_revision_timestamp,
+        total_revisions=page_info.total_revisions,
+        synced_revisions=updated_repo_info.synced_revisions,
     )
 
 
@@ -75,6 +79,7 @@ def _init_repo_info(info: PageInfo) -> RepoInfo:
         synced_revision_id="",
         synced_revision_timestamp="",
         last_sync=_current_time(),
+        synced_revisions=0,
     )
 
 
@@ -83,6 +88,7 @@ def _update_repo_info(info: RepoInfo, revision: Revision) -> RepoInfo:
     updated.synced_revision_id = revision.id
     updated.synced_revision_timestamp = revision.timestamp
     updated.last_sync = _current_time()
+    updated.synced_revisions += 1
     return updated
 
 

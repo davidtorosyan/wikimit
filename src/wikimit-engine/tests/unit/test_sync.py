@@ -17,6 +17,7 @@ MOCK_PAGE_INFO = wiki.PageInfo(
     language=MOCK_LANG,
     highest_known_revision_id=MOCK_HIGHEST_ID,
     highest_known_revision_timestamp="pageInfoTimestamp",
+    total_revisions=100,
 )
 
 MOCK_REPO_INFO_ALREADY_SYNCED = repo.RepoInfo(
@@ -30,6 +31,7 @@ MOCK_REPO_INFO_ALREADY_SYNCED = repo.RepoInfo(
     synced_revision_id=MOCK_HIGHEST_ID,
     synced_revision_timestamp=MOCK_SYNCED_REVISION_TIMESTAMP,
     last_sync=MOCK_LAST_SYNC,
+    synced_revisions=10,
 )
 
 
