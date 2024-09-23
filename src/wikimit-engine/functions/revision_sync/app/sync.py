@@ -11,6 +11,7 @@ from .wiki import PageInfo, Revision, get_page_info, get_revisions
 
 REPO_BASE_PATH = Path("/tmp/wikimit/repos")
 SYNC_LIMIT = 5
+MAX_ITERATIONS = 3
 
 
 @dataclass
