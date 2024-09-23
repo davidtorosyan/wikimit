@@ -4,6 +4,7 @@ from pytest_mock import MockFixture
 MOCK_SITE = "somewiki.org"
 MOCK_LANG = "somelang"
 MOCK_TITLE = "some title"
+MOCK_RESET = False
 
 MOCK_SYNCED_REVISION_TIMESTAMP = "some synced revision timestamp"
 MOCK_LAST_SYNC = "some last sync timestamp"
@@ -32,6 +33,8 @@ MOCK_REPO_INFO_ALREADY_SYNCED = repo.RepoInfo(
     synced_revision_timestamp=MOCK_SYNCED_REVISION_TIMESTAMP,
     last_sync=MOCK_LAST_SYNC,
     synced_revisions=10,
+    known_total_revisions=100,
+    first_revision_id="",
 )
 
 
@@ -47,7 +50,7 @@ def test_sync_already_synced(mocker: MockFixture):
     )
 
     # run
-    result = sync.sync(sync.SyncRequest(MOCK_SITE, MOCK_LANG, MOCK_TITLE))
+    result = sync.sync(sync.SyncRequest(MOCK_SITE, MOCK_LANG, MOCK_TITLE, MOCK_RESET))
 
     # verify
     assert result.newly_synced_revisions == 0
