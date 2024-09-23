@@ -1,8 +1,8 @@
 import copy
-import datetime
 import time
 from collections import OrderedDict
 from dataclasses import dataclass
+from datetime import datetime, timezone
 from pathlib import Path
 
 from .git import CommitInfo
@@ -106,7 +106,7 @@ def _to_commit_info(revision: Revision) -> CommitInfo:
     )
     description = "\n".join(["{}: {}".format(k, v) for k, v in info.items() if v])
 
-    timestamp_dt = datetime.datetime.fromisoformat(revision.timestamp.rstrip("Z"))
+    timestamp_dt = datetime.fromisoformat(revision.timestamp.rstrip("Z"))
     unix_time = int(time.mktime(timestamp_dt.timetuple()))
 
     return CommitInfo(
@@ -118,4 +118,4 @@ def _to_commit_info(revision: Revision) -> CommitInfo:
 
 
 def _current_time() -> str:
-    return datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
