@@ -11,22 +11,14 @@
             "Type": "Choice",
             "Choices": [
                 {
-                    "And": [
-                        {
-                            "Variable": "$.success",
-                            "BooleanEquals": true
-                        },
-                        {
-                            "Variable": "$.needs_sync",
-                            "BooleanEquals": true
-                        }
-                    ],
-                    "Next": "Sync revisions"
-                },
-                {
                     "Variable": "$.success",
                     "BooleanEquals": false,
                     "Next": "Handle sync failure"
+                },
+                {
+                    "Variable": "$.needs_sync",
+                    "BooleanEquals": true,
+                    "Next": "Sync revisions"
                 }
             ],
             "Default": "Up to date!"
