@@ -65,6 +65,7 @@ def get_edit_count(
 ) -> int:
     if from_revision_id == to_revision_id:
         return 1
+    # TODO: handle 2 revisions case
     return 2 + _get_edit_count_between_revisions(
         page_info.site,
         page_info.language,

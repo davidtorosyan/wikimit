@@ -9,10 +9,15 @@ MOCK_LANG = "en"
 MOCK_SMOKE_CURRENT_PATH = "tests/mock/wiki_smoke_current.yaml"
 MOCK_SMOKE_HISTORY_1_PATH = "tests/mock/wiki_smoke_history_1.yaml"
 MOCK_SMOKE_HISTORY_2_PATH = "tests/mock/wiki_smoke_history_2.yaml"
+MOCK_SMOKE_EDIT_COUNT_PATH = "tests/mock/wiki_smoke_edit_count.yaml"
 
 SMOKE_LIMIT = 5
 SMOKE_OFFSET_1 = "2003-04-03T15:57:37Z"
 SMOKE_OFFSET_2 = "2003-05-14T06:17:45Z"
+
+SMOKE_REVISION_START = "509502"
+SMOKE_REVISION_END = "1186000588"
+SMOKE_EDIT_COUNT = 1156
 
 
 MOCK_PAGE_INFO = wiki.PageInfo(
@@ -56,6 +61,15 @@ def test_get_revisions_2():
     assert revisions[-1].timestamp == SMOKE_OFFSET_2
 
 
+@responses.activate
+def test_get_edit_count():
+    responses._add_from_file(file_path=MOCK_SMOKE_EDIT_COUNT_PATH)
+    count = wiki.get_edit_count(
+        MOCK_PAGE_INFO, SMOKE_REVISION_START, SMOKE_REVISION_END
+    )
+    assert count == SMOKE_EDIT_COUNT
+
+
 @_recorder.record(file_path=MOCK_SMOKE_CURRENT_PATH)
 def record_smoke_current():
     """
@@ -80,3 +94,11 @@ def record_smoke_history_2():
     wiki.get_revisions(
         MOCK_PAGE_INFO, offset_timestamp=SMOKE_OFFSET_1, limit=SMOKE_LIMIT
     )
+
+
+@_recorder.record(file_path=MOCK_SMOKE_EDIT_COUNT_PATH)
+def record_smoke_edit_count():
+    """
+    Run this function to record the responses for the smoke test.
+    """
+    wiki.get_edit_count(MOCK_PAGE_INFO, SMOKE_REVISION_START, SMOKE_REVISION_END)

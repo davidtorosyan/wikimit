@@ -1,0 +1,8 @@
+responses:
+- response:
+    auto_calculate_content_length: false
+    body: '{"count":1154,"limit":false}'
+    content_type: text/plain
+    method: GET
+    status: 200
+    url: https://en.wikipedia.org/w/rest.php/v1/page/Finch/history/counts/edits?from=509502&to=1186000588
