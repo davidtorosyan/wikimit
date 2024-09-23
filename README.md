@@ -43,21 +43,23 @@ For local commands, you must install and run [Docker](https://docs.aws.amazon.co
 
 Before running tests, install [python 3.11](https://www.python.org/downloads/release/python-3117/) and [pip](https://pip.pypa.io/en/stable/installation/).
 
+Switch to the right directory:
+```sh
+cd src/wikimit-engine
+```
+
 To run unit tests:
 ```sh
 pip install -r tests/requirements.txt --user
 python -m pytest tests/unit -v
 ```
 
-To run integration tests (on Windows):
+To run integration tests:
 ```sh
-$env:AWS_SAM_STACK_NAME="wikimit-engine"
+sam build --use-container
+sam local start-api
+docker run -p "8083:8083" --env-file tests/config/aws-stepfunctions-local-credentials.txt amazon/aws-stepfunctions-local
 python -m pytest tests/integration -v
-```
-
-To run integration tests (on unix/mac):
-```sh
-AWS_SAM_STACK_NAME="wikimit-engine" python -m pytest tests/integration -v
 ```
 
 To run a smoke test:

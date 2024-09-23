@@ -1,5 +1,7 @@
 import json
 import logging
+import re
+from pathlib import Path
 from time import sleep
 from unittest import TestCase
 from uuid import uuid4
@@ -15,6 +17,10 @@ STATE_MACHINE_ARN = (
     f"arn:aws:states:{REGION}:{ACCOUNT}:stateMachine:{STATE_MACHINE_NAME}"
 )
 INPUT = '{"title":"Finch", "reset": true}'
+STATE_MACHINE_ROLE = f"arn:aws:iam::{ACCOUNT}:role/DummyRole"
+FUNCTION_ARN_ROOT = f"arn:aws:lambda:{REGION}:{ACCOUNT}:function"
+
+STATE_MACHINE_PATH = Path("statemachine") / "revision.asl.json"
 
 
 class TestStateMachine(TestCase):
@@ -28,6 +34,22 @@ class TestStateMachine(TestCase):
             aws_access_key_id="dummy",
             aws_secret_access_key="dummy",
         )
+        self.client.create_state_machine(  # type: ignore
+            name=STATE_MACHINE_NAME,
+            definition=self._get_state_machine_definition(),
+            roleArn=STATE_MACHINE_ROLE,
+        )
+
+    def _get_state_machine_definition(self) -> str:
+        current_file = Path(__file__)
+        state_machine_path = current_file.parent.parent.parent / STATE_MACHINE_PATH
+        state_machine_definition = state_machine_path.read_text()
+        state_machine_definition = re.sub(
+            r"\$\{([^}]+)Arn\}",
+            lambda m: f"{FUNCTION_ARN_ROOT}:{m.group(1)}",
+            state_machine_definition,
+        )
+        return state_machine_definition
 
     def tearDown(self) -> None:
         pass
