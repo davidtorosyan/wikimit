@@ -7,7 +7,7 @@ from pathlib import Path
 
 from .git import CommitInfo
 from .repo import RepoInfo, apply_commit, initialize
-from .wiki import PageInfo, Revision, get_page_info, get_revisions
+from .wiki import PageInfo, Revision, get_edit_count, get_page_info, get_revisions
 
 REPO_BASE_PATH = Path("/tmp/wikimit/repos")
 SYNC_LIMIT = 5
@@ -44,17 +44,32 @@ def sync(request: SyncRequest) -> SyncResult:
         if _needs_sync(page_info, repo_info)
         else []
     )
-    updated_repo_info = repo_info
+
+    is_revision_count_outdated = (
+        repo_info.highest_known_revision_id != page_info.highest_known_revision_id
+    )
+    updated_repo_info = _update_repo_info_with_pageinfo(repo_info, page_info)
     for revision in revisions:
+        is_first_revision = repo_info.first_revision_id == ""
         commit_info = _to_commit_info(revision)
-        updated_repo_info = _update_repo_info(updated_repo_info, revision)
+        updated_repo_info = _update_repo_info_with_revision(updated_repo_info, revision)
+        if is_revision_count_outdated or is_first_revision:
+            total_revisions = get_edit_count(
+                page_info,
+                from_revision_id=updated_repo_info.first_revision_id,
+                to_revision_id=page_info.highest_known_revision_id,
+            )
+            updated_repo_info = _update_repo_info_with_total_revisions(
+                updated_repo_info, total_revisions
+            )
         apply_commit(path, updated_repo_info, commit_info, revision.text)
+
     return SyncResult(
         newly_synced_revisions=len(revisions),
         last_sync=updated_repo_info.last_sync,
         needs_sync=_needs_sync(page_info, updated_repo_info),
         synced_revision_timestamp=updated_repo_info.synced_revision_timestamp,
-        total_revisions=page_info.total_revisions,
+        total_revisions=updated_repo_info.known_total_revisions,
         synced_revisions=updated_repo_info.synced_revisions,
     )
 
@@ -80,15 +95,34 @@ def _init_repo_info(info: PageInfo) -> RepoInfo:
         synced_revision_timestamp="",
         last_sync=_current_time(),
         synced_revisions=0,
+        first_revision_id="",
+        known_total_revisions=0,
     )
 
 
-def _update_repo_info(info: RepoInfo, revision: Revision) -> RepoInfo:
+def _update_repo_info_with_pageinfo(info: RepoInfo, pageInfo: PageInfo) -> RepoInfo:
+    updated = copy.copy(info)
+    updated.highest_known_revision_id = pageInfo.highest_known_revision_id
+    updated.highest_known_revision_timestamp = pageInfo.highest_known_revision_timestamp
+    return updated
+
+
+def _update_repo_info_with_total_revisions(
+    info: RepoInfo, total_revisions: int
+) -> RepoInfo:
+    updated = copy.copy(info)
+    updated.known_total_revisions = total_revisions
+    return updated
+
+
+def _update_repo_info_with_revision(info: RepoInfo, revision: Revision) -> RepoInfo:
     updated = copy.copy(info)
     updated.synced_revision_id = revision.id
     updated.synced_revision_timestamp = revision.timestamp
     updated.last_sync = _current_time()
     updated.synced_revisions += 1
+    if updated.first_revision_id == "":
+        updated.first_revision_id = revision.id
     return updated
 
 

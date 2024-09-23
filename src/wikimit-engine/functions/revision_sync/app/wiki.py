@@ -58,6 +58,22 @@ def get_revisions(
     return _parse_revisions(content)
 
 
+def get_edit_count(
+    page_info: PageInfo,
+    from_revision_id: str,
+    to_revision_id: str,
+) -> int:
+    if from_revision_id == to_revision_id:
+        return 1
+    return 2 + _get_edit_count_between_revisions(
+        page_info.site,
+        page_info.language,
+        page_info.title,
+        from_revision_id,
+        to_revision_id,
+    )
+
+
 def _parse_page_info(site: str, language: str, content: bytes) -> PageInfo:
     doc = parseString(content)
 
@@ -69,8 +85,6 @@ def _parse_page_info(site: str, language: str, content: bytes) -> PageInfo:
     highest_id = _extract_text(revision, "id")
     highest_timestamp = _extract_text(revision, "timestamp")
 
-    total_revisions = 0  # TODO: get this elsewhere
-
     base_url = _compose_url(site, language)
     url = "{}/wiki/{}".format(base_url, title)
     return PageInfo(
@@ -81,7 +95,7 @@ def _parse_page_info(site: str, language: str, content: bytes) -> PageInfo:
         language=language,
         highest_known_revision_id=highest_id,
         highest_known_revision_timestamp=highest_timestamp,
-        total_revisions=total_revisions,
+        total_revisions=0,
     )
 
 
@@ -177,5 +191,27 @@ def _get_text(nodelist: list[Element]) -> str:
     return "".join(results)
 
 
-def _extract_attribute(element: Element, attribute: str) -> str:
-    return element.getAttribute(attribute)
+def _get_edit_count_between_revisions(
+    site: str,
+    language: str,
+    title: str,
+    from_revision_id: str,
+    to_revision_id: str,
+) -> int:
+    """
+    Download the edit count of a Wikipedia page.
+
+    See parameters here:
+    https://www.mediawiki.org/wiki/API:REST_API/Reference#Get_page_history_counts
+    """
+
+    base_url = _compose_url(site, language)
+    api_url = f"{base_url}/w/rest.php/v1/page/{title}/history/counts/edits"
+    params = {
+        "from": from_revision_id,
+        "to": to_revision_id,
+    }
+    response = requests.get(api_url, params=params)
+    response.raise_for_status()
+    # TODO: handle limit (30,000)
+    return response.json()["count"]
