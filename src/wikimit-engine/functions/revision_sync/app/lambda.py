@@ -24,19 +24,10 @@ def _lambda_handler_internal(event: Any, context: object) -> Any:  # type: ignor
     iteration = event.get("iteration", 0)
     reset = event.get("reset", False)
 
-    if not event:
+    if not title:
         return {
             "success": False,
             "message": "Invalid event, missing title",
-        }
-
-    if iteration >= MAX_ITERATIONS:
-        synced_revisions = event.get("synced_revisions", 0)
-        total_revisions = event.get("total_revisions", 0)
-        return {
-            "success": False,
-            "message": f"Max iterations ({MAX_ITERATIONS}) reached. So far synced {synced_revisions} revisions out of {total_revisions}.",
-            "title": title,
         }
 
     request = SyncRequest(
@@ -47,11 +38,16 @@ def _lambda_handler_internal(event: Any, context: object) -> Any:  # type: ignor
     )
     result = sync(request)
 
+    max_iterations_reached = (
+        result.needs_sync is True and iteration + 1 >= MAX_ITERATIONS
+    )
+
     return {
         "success": True,
         "newly_synced_revisions": result.newly_synced_revisions,
         "last_sync": result.last_sync,
         "needs_sync": result.needs_sync,
+        "max_iterations_reached": max_iterations_reached,
         "synced_revision_timestamp": result.synced_revision_timestamp,
         "iteration": iteration + 1,
         "title": title,

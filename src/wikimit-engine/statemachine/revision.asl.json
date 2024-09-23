@@ -16,12 +16,20 @@
                     "Next": "Handle sync failure"
                 },
                 {
+                    "Variable": "$.max_iterations_reached",
+                    "BooleanEquals": true,
+                    "Next": "Partially synced!"
+                },
+                {
                     "Variable": "$.needs_sync",
                     "BooleanEquals": true,
                     "Next": "Sync revisions"
                 }
             ],
             "Default": "Up to date!"
+        },
+        "Partially synced!": {
+            "Type": "Succeed"
         },
         "Up to date!": {
             "Type": "Succeed"
