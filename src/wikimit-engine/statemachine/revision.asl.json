@@ -15,21 +15,39 @@
                     "BackoffRate": 1.5
                 }
             ],
-            "Next": "More work?"
+            "Next": "Check status"
         },
-        "More work?": {
+        "Check status": {
             "Type": "Choice",
             "Choices": [
                 {
-                    "Variable": "$.needs_sync",
-                    "BooleanEquals": true,
+                    "And": [
+                        {
+                            "Variable": "$.success",
+                            "BooleanEquals": true
+                        },
+                        {
+                            "Variable": "$.needs_sync",
+                            "BooleanEquals": true
+                        }
+                    ],
                     "Next": "Sync revisions"
+                },
+                {
+                    "Variable": "$.success",
+                    "BooleanEquals": false,
+                    "Next": "Handle sync failure"
                 }
             ],
             "Default": "Up to date!"
         },
         "Up to date!": {
             "Type": "Succeed"
+        },
+        "Handle sync failure": {
+            "Type": "Fail",
+            "Error": "SyncFailure",
+            "CausePath": "$.message"
         }
     }
 }

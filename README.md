@@ -101,6 +101,9 @@ aws stepfunctions --endpoint $endpoint start-execution --state-machine-arn $stat
 # check
 aws stepfunctions --endpoint $endpoint describe-execution --execution-arn $executionArn
 
+# get status
+aws stepfunctions --endpoint $endpoint get-execution-history --execution-arn $executionArn --reverse-order --max-items 1
+
 # stop
 aws stepfunctions --endpoint $endpoint stop-execution --execution-arn $executionArn
 
