@@ -19,6 +19,7 @@ class SyncRequest:
     site: str
     language: str
     title: str
+    reset: bool
 
 
 @dataclass
@@ -34,7 +35,7 @@ class SyncResult:
 def sync(request: SyncRequest) -> SyncResult:
     page_info = get_page_info(request.title, request.site, request.language)
     path = REPO_BASE_PATH / _get_repo_name(page_info)
-    repo_info = initialize(path, _init_repo_info(page_info))
+    repo_info = initialize(path, _init_repo_info(page_info), request.reset)
     revisions = (
         get_revisions(
             page_info,

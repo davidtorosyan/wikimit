@@ -1,4 +1,5 @@
 import json
+import shutil
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -38,7 +39,11 @@ class RepoInfo:
     known_total_revisions: int
 
 
-def initialize(path: Path, init_info: RepoInfo) -> RepoInfo:
+def initialize(path: Path, init_info: RepoInfo, reset: bool) -> RepoInfo:
+    # clean
+    if reset:
+        if path.exists():
+            shutil.rmtree(path)
     # existence
     if not path.exists():
         path.mkdir(parents=True)

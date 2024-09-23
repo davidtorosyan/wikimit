@@ -22,6 +22,7 @@ def lambda_handler(event: Any, context: object) -> Any:  # type: ignore
 def _lambda_handler_internal(event: Any, context: object) -> Any:  # type: ignore
     title = event.get("title")
     iteration = event.get("iteration", 0)
+    reset = event.get("reset", False)
 
     if not event:
         return {
@@ -42,6 +43,7 @@ def _lambda_handler_internal(event: Any, context: object) -> Any:  # type: ignor
         site=SITE_WIKIPEDIA,
         language=LANGUAGE_EN,
         title=title,
+        reset=reset,
     )
     result = sync(request)
 
