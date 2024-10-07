@@ -48,15 +48,46 @@ def main(ctx: typer.Context):
 @test_app.command("unit")
 def test_unit():
     logger.print("Running unit tests")
+    install_test_requirements()
+    run_unit_tests()
 
 
 @test_app.command("int")
 def test_integration():
     logger.print("Running integration tests")
+    run_sam_local_start_lambda()
+    run_docker_stepfunctions_local()
+    run_integration_tests()
 
 
 def run_sam_build() -> None:
-    _run_command("sam build --use-container", working_dir=WIKIMIT_ENGINE_DIR)
+    _run_command_wikimit("sam build --use-container")
+
+
+def install_test_requirements():
+    _run_command_wikimit("pip install -r tests/requirements.txt --user")
+
+
+def run_unit_tests():
+    _run_command_wikimit("python -m pytest tests/unit -v")
+
+
+def run_sam_local_start_lambda():
+    _run_command_wikimit("sam local start-lambda")
+
+
+def run_docker_stepfunctions_local():
+    _run_command_wikimit(
+        'docker run -p "8083:8083" --env-file tests/config/aws-stepfunctions-local-credentials.txt amazon/aws-stepfunctions-local'
+    )
+
+
+def run_integration_tests():
+    _run_command_wikimit("python -m pytest tests/integration -v")
+
+
+def _run_command_wikimit(command: str) -> None:
+    _run_command(command, working_dir=WIKIMIT_ENGINE_DIR)
 
 
 def _run_command(command: str, working_dir: Path | None = None) -> None:
