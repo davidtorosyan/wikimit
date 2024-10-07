@@ -27,21 +27,24 @@ def main(
         help="show more logs (or use -vv for even more)",
     ),
 ):
+    """Script runner for wikimit-engine"""
     if verbose == 1:
         configure(logging.INFO)
     elif verbose == 2:
         configure(logging.DEBUG)
     if ctx.invoked_subcommand is None:
-        logger.print("hi")
+        typer.echo(ctx.get_help())
 
 
 @app.command()
 def build():
+    """Build the application"""
     run_sam_build()
 
 
 @test_app.callback(invoke_without_command=True)
 def test_main(ctx: typer.Context):
+    """Run tests"""
     if ctx.invoked_subcommand is None:
         test_setup()
         run_unit_tests()
@@ -50,12 +53,14 @@ def test_main(ctx: typer.Context):
 
 @test_app.command("unit")
 def test_unit():
+    """Run unit tests"""
     test_setup()
     run_unit_tests()
 
 
 @test_app.command("int")
 def test_integration():
+    """Run integration tests. Requires docker."""
     test_setup()
     run_integration_tests_with_docker()
 
