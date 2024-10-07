@@ -12,6 +12,8 @@ app.add_typer(test_app, name="test")
 
 WIKIMIT_ENGINE_DIR = Path(__file__).parent.parent.parent / "src" / "wikimit-engine"
 
+DOCKER_STEPFUNCTIONS_LOCAL_NAME = "integration-test-stepfunctions"
+
 
 @app.callback(invoke_without_command=True)
 def main(
@@ -34,7 +36,6 @@ def main(
 
 @app.command()
 def build():
-    logger.print("Building")
     run_sam_build()
 
 
@@ -47,47 +48,59 @@ def test_main(ctx: typer.Context):
 
 @test_app.command("unit")
 def test_unit():
-    logger.print("Setting up environment")
     install_test_requirements()
-    logger.print("Running unit tests")
     run_unit_tests()
 
 
 @test_app.command("int")
 def test_integration():
-    logger.print("Setting up environment")
     install_test_requirements()
-    logger.print("Initializing local lambda")
-    run_sam_local_start_lambda()
-    logger.print("Initializing local stepfunctions")
-    run_docker_stepfunctions_local()
-    logger.print("Running integration tests")
-    run_integration_tests()
+    try:
+        start_docker_stepfunctions_local(DOCKER_STEPFUNCTIONS_LOCAL_NAME)
+        run_integration_tests()
+    finally:
+        stop_docker_stepfunctions_local(DOCKER_STEPFUNCTIONS_LOCAL_NAME)
+        remove_docker_stepfunctions_local(DOCKER_STEPFUNCTIONS_LOCAL_NAME)
 
 
 def run_sam_build() -> None:
+    logger.print("Building")
     _run_command_wikimit("sam build --use-container")
 
 
 def install_test_requirements():
+    logger.print("Setting up environment")
     _run_command_wikimit("pip install -r tests/requirements.txt --user")
 
 
 def run_unit_tests():
+    logger.print("Running unit tests")
     _run_command_wikimit("python -m pytest tests/unit -v")
 
 
-def run_sam_local_start_lambda():
-    _start_command_wikimit("sam local start-lambda")
+def start_sam_local_start_lambda() -> subprocess.Popen[bytes]:
+    return _start_command_wikimit("sam local start-lambda")
 
 
-def run_docker_stepfunctions_local():
-    _start_command_wikimit(
-        'docker run -p "8083:8083" --env-file tests/config/aws-stepfunctions-local-credentials.txt amazon/aws-stepfunctions-local'
+def start_docker_stepfunctions_local(name: str) -> subprocess.Popen[bytes]:
+    logger.print("Initializing local stepfunctions")
+    return _start_command_wikimit(
+        f'docker run -p "8083:8083" --name "{name}" --env-file tests/config/aws-stepfunctions-local-credentials.txt amazon/aws-stepfunctions-local'
     )
 
 
+def stop_docker_stepfunctions_local(name: str):
+    logger.print("Stopping local stepfunctions")
+    return _run_command_wikimit(f'docker stop "{name}"')
+
+
+def remove_docker_stepfunctions_local(name: str):
+    logger.print("Removing local stepfunctions")
+    return _run_command_wikimit(f'docker rm "{name}"')
+
+
 def run_integration_tests():
+    logger.print("Running integration tests")
     _run_command_wikimit("python -m pytest tests/integration -v")
 
 
