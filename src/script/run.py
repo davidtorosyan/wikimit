@@ -47,16 +47,21 @@ def test_main(ctx: typer.Context):
 
 @test_app.command("unit")
 def test_unit():
-    logger.print("Running unit tests")
+    logger.print("Setting up environment")
     install_test_requirements()
+    logger.print("Running unit tests")
     run_unit_tests()
 
 
 @test_app.command("int")
 def test_integration():
-    logger.print("Running integration tests")
+    logger.print("Setting up environment")
+    install_test_requirements()
+    logger.print("Initializing local lambda")
     run_sam_local_start_lambda()
+    logger.print("Initializing local stepfunctions")
     run_docker_stepfunctions_local()
+    logger.print("Running integration tests")
     run_integration_tests()
 
 
@@ -73,11 +78,11 @@ def run_unit_tests():
 
 
 def run_sam_local_start_lambda():
-    _run_command_wikimit("sam local start-lambda")
+    _start_command_wikimit("sam local start-lambda")
 
 
 def run_docker_stepfunctions_local():
-    _run_command_wikimit(
+    _start_command_wikimit(
         'docker run -p "8083:8083" --env-file tests/config/aws-stepfunctions-local-credentials.txt amazon/aws-stepfunctions-local'
     )
 
@@ -88,6 +93,10 @@ def run_integration_tests():
 
 def _run_command_wikimit(command: str) -> None:
     _run_command(command, working_dir=WIKIMIT_ENGINE_DIR)
+
+
+def _start_command_wikimit(command: str) -> subprocess.Popen[bytes]:
+    return _start_command(command, working_dir=WIKIMIT_ENGINE_DIR)
 
 
 def _run_command(command: str, working_dir: Path | None = None) -> None:
@@ -106,6 +115,26 @@ def _run_command(command: str, working_dir: Path | None = None) -> None:
     except subprocess.CalledProcessError as e:
         logger.error("> Failure")
         logger.error(e.stderr)
+
+
+def _start_command(
+    command: str, working_dir: Path | None = None
+) -> subprocess.Popen[bytes]:
+    logger.info(f"% {command}")
+    try:
+        process = subprocess.Popen(
+            command,
+            shell=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            cwd=working_dir,
+        )
+        logger.success("> Started")
+        return process
+    except subprocess.CalledProcessError as e:
+        logger.error("> Failure")
+        logger.error(e.stderr)
+        raise
 
 
 if __name__ == "__main__":
