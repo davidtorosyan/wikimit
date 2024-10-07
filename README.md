@@ -57,7 +57,7 @@ python -m pytest tests/unit -v
 To run integration tests:
 ```sh
 sam build --use-container
-sam local start-api
+sam local start-lambda
 docker run -p "8083:8083" --env-file tests/config/aws-stepfunctions-local-credentials.txt amazon/aws-stepfunctions-local
 python -m pytest tests/integration -v
 ```
