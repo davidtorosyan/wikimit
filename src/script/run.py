@@ -1,5 +1,6 @@
 import logging
 import subprocess
+from contextlib import contextmanager
 from pathlib import Path
 
 import typer
@@ -55,12 +56,18 @@ def test_unit():
 @test_app.command("int")
 def test_integration():
     install_test_requirements()
-    try:
-        start_docker_stepfunctions_local(DOCKER_STEPFUNCTIONS_LOCAL_NAME)
+    with docker_stepfunctions_local(DOCKER_STEPFUNCTIONS_LOCAL_NAME):
         run_integration_tests()
+
+
+@contextmanager
+def docker_stepfunctions_local(name: str):
+    try:
+        start_docker_stepfunctions_local(name)
+        yield
     finally:
-        stop_docker_stepfunctions_local(DOCKER_STEPFUNCTIONS_LOCAL_NAME)
-        remove_docker_stepfunctions_local(DOCKER_STEPFUNCTIONS_LOCAL_NAME)
+        stop_docker_stepfunctions_local(name)
+        remove_docker_stepfunctions_local(name)
 
 
 def run_sam_build() -> None:
@@ -104,15 +111,15 @@ def run_integration_tests():
     _run_command_wikimit("python -m pytest tests/integration -v")
 
 
-def _run_command_wikimit(command: str) -> None:
-    _run_command(command, working_dir=WIKIMIT_ENGINE_DIR)
+def _run_command_wikimit(command: str) -> str:
+    return _run_command(command, working_dir=WIKIMIT_ENGINE_DIR)
 
 
 def _start_command_wikimit(command: str) -> subprocess.Popen[bytes]:
     return _start_command(command, working_dir=WIKIMIT_ENGINE_DIR)
 
 
-def _run_command(command: str, working_dir: Path | None = None) -> None:
+def _run_command(command: str, working_dir: Path | None = None) -> str:
     logger.info(f"% {command}")
     try:
         result = subprocess.run(
@@ -125,9 +132,11 @@ def _run_command(command: str, working_dir: Path | None = None) -> None:
         )
         logger.success("> Success")
         logger.debug(result.stdout)
+        return result.stdout
     except subprocess.CalledProcessError as e:
         logger.error("> Failure")
         logger.error(e.stderr)
+        return e.stderr
 
 
 def _start_command(
