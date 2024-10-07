@@ -39,7 +39,7 @@ def build():
 
 
 @test_app.callback(invoke_without_command=True)
-def main(ctx: typer.Context):
+def test_main(ctx: typer.Context):
     if ctx.invoked_subcommand is None:
         test_unit()
         test_integration()
