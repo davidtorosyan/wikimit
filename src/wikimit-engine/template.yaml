@@ -19,6 +19,7 @@ Resources:
       CodeUri: functions/revision_sync/
       Handler: app.lambda.lambda_handler
       Runtime: python3.11
+      Timeout: 30
       Architectures:
         - x86_64
       Events:
