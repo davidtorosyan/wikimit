@@ -136,7 +136,7 @@ def _run_command(command: str, working_dir: Path | None = None) -> str:
     except subprocess.CalledProcessError as e:
         logger.error("> Failure")
         logger.error(e.stderr)
-        return e.stderr
+        raise typer.Exit(code=1)
 
 
 def _start_command(
@@ -156,7 +156,7 @@ def _start_command(
     except subprocess.CalledProcessError as e:
         logger.error("> Failure")
         logger.error(e.stderr)
-        raise
+        raise typer.Exit(code=1)
 
 
 if __name__ == "__main__":
