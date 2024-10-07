@@ -42,8 +42,7 @@ python ./src/script/run.py
 Explore the interactive help, but here are some useful commands:
 ```sh
 python ./src/script/run.py build
-python ./src/script/run.py test unit
-python ./src/script/run.py test int
+python ./src/script/run.py test
 ```
 
 ## Development

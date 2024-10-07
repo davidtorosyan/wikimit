@@ -43,19 +43,29 @@ def build():
 @test_app.callback(invoke_without_command=True)
 def test_main(ctx: typer.Context):
     if ctx.invoked_subcommand is None:
-        test_unit()
-        test_integration()
+        test_setup()
+        run_unit_tests()
+        run_integration_tests_with_docker()
 
 
 @test_app.command("unit")
 def test_unit():
-    install_test_requirements()
+    test_setup()
     run_unit_tests()
 
 
 @test_app.command("int")
 def test_integration():
+    test_setup()
+    run_integration_tests_with_docker()
+
+
+def test_setup():
+    run_sam_build()
     install_test_requirements()
+
+
+def run_integration_tests_with_docker():
     with docker_stepfunctions_local(DOCKER_STEPFUNCTIONS_LOCAL_NAME):
         run_integration_tests()
 
@@ -83,6 +93,7 @@ def install_test_requirements():
 def run_unit_tests():
     logger.print("Running unit tests")
     _run_command_wikimit("python -m pytest tests/unit -v")
+    logger.success("Unit tests passed")
 
 
 def start_sam_local_start_lambda() -> subprocess.Popen[bytes]:
@@ -109,6 +120,7 @@ def remove_docker_stepfunctions_local(name: str):
 def run_integration_tests():
     logger.print("Running integration tests")
     _run_command_wikimit("python -m pytest tests/integration -v")
+    logger.success("Integration tests passed")
 
 
 def _run_command_wikimit(command: str) -> str:
@@ -130,11 +142,11 @@ def _run_command(command: str, working_dir: Path | None = None) -> str:
             text=True,
             cwd=working_dir,
         )
-        logger.success("> Success")
+        logger.debug("> Success")
         logger.debug(result.stdout)
         return result.stdout
     except subprocess.CalledProcessError as e:
-        logger.error("> Failure")
+        logger.debug("> Failure")
         logger.error(e.stderr)
         raise typer.Exit(code=1)
 
@@ -151,10 +163,10 @@ def _start_command(
             stderr=subprocess.PIPE,
             cwd=working_dir,
         )
-        logger.success("> Started")
+        logger.debug("> Started")
         return process
     except subprocess.CalledProcessError as e:
-        logger.error("> Failure")
+        logger.debug("> Failure")
         logger.error(e.stderr)
         raise typer.Exit(code=1)
 
