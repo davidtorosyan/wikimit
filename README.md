@@ -25,6 +25,27 @@ This project is in prototyping stage, so the only setup available is figuring ou
 
 Not ready yet!
 
+## Development (draft)
+
+Install requirements:
+
+```sh
+pip install -r ./src/script/requirements.txt --user
+```
+
+Run script for building and running tests:
+
+```sh
+python ./src/script/run.py
+```
+
+Explore the interactive help, but here are some useful commands:
+```sh
+python ./src/script/run.py build
+python ./src/script/run.py test unit
+python ./src/script/run.py test int
+```
+
 ## Development
 
 Created `wikimit-engine` with [SAM CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/install-sam-cli.html), version 1.103.0, using this command:
