@@ -59,10 +59,17 @@ def test_unit():
 
 
 @test_app.command("int")
-def test_integration():
+def test_integration(
+    no_cleanup: bool = typer.Option(
+        0,
+        "--no-cleanup",
+        "-nc",
+        help="don't cleanup after tests",
+    ),
+):
     """Run integration tests. Requires docker."""
     test_setup()
-    run_integration_tests_with_docker()
+    run_integration_tests_with_docker(no_cleanup)
 
 
 def test_setup():
@@ -70,19 +77,20 @@ def test_setup():
     install_test_requirements()
 
 
-def run_integration_tests_with_docker():
-    with docker_stepfunctions_local(DOCKER_STEPFUNCTIONS_LOCAL_NAME):
+def run_integration_tests_with_docker(no_cleanup: bool = False):
+    with docker_stepfunctions_local(DOCKER_STEPFUNCTIONS_LOCAL_NAME, no_cleanup):
         run_integration_tests()
 
 
 @contextmanager
-def docker_stepfunctions_local(name: str):
+def docker_stepfunctions_local(name: str, no_cleanup: bool = False):
     try:
         start_docker_stepfunctions_local(name)
         yield
     finally:
-        stop_docker_stepfunctions_local(name)
-        remove_docker_stepfunctions_local(name)
+        if not no_cleanup:
+            stop_docker_stepfunctions_local(name)
+            remove_docker_stepfunctions_local(name)
 
 
 def run_sam_build() -> None:
