@@ -151,8 +151,11 @@ def _run_command(command: str, working_dir: Path | None = None) -> str:
         logger.debug(result.stdout)
         return result.stdout
     except subprocess.CalledProcessError as e:
-        logger.debug("> Failure")
-        logger.error(e.stderr)
+        logger.error("> Failure")
+        if e.stdout:
+            logger.error(e.stdout)
+        if e.stderr:
+            logger.error(e.stderr)
         raise typer.Exit(code=1)
 
 
