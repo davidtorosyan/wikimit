@@ -1,5 +1,8 @@
 import logging
+import signal
 import subprocess
+import threading
+import time
 from contextlib import contextmanager
 from pathlib import Path
 
@@ -78,8 +81,9 @@ def test_setup():
 
 
 def run_integration_tests_with_docker(no_cleanup: bool = False):
-    with docker_stepfunctions_local(DOCKER_STEPFUNCTIONS_LOCAL_NAME, no_cleanup):
-        run_integration_tests()
+    with thread_sam_local_start_lambda():
+        with docker_stepfunctions_local(DOCKER_STEPFUNCTIONS_LOCAL_NAME, no_cleanup):
+            run_integration_tests()
 
 
 @contextmanager
@@ -109,11 +113,16 @@ def run_unit_tests():
     logger.success("Unit tests passed")
 
 
-def start_sam_local_start_lambda() -> subprocess.Popen[bytes]:
-    return _start_command_wikimit("sam local start-lambda")
+@contextmanager
+def thread_sam_local_start_lambda():
+    logger.print("Starting local lambda")
+    with _thread_command_wikimit("sam local start-lambda"):
+        logger.print("Waiting for local lambda to start")
+        time.sleep(5)
+        yield
 
 
-def start_docker_stepfunctions_local(name: str) -> subprocess.Popen[bytes]:
+def start_docker_stepfunctions_local(name: str) -> subprocess.Popen[str]:
     logger.print("Initializing local stepfunctions")
     return _start_command_wikimit(
         f'docker run -p "8083:8083" --name "{name}" --env-file tests/config/aws-stepfunctions-local-credentials.txt amazon/aws-stepfunctions-local'
@@ -140,8 +149,14 @@ def _run_command_wikimit(command: str) -> str:
     return _run_command(command, working_dir=WIKIMIT_ENGINE_DIR)
 
 
-def _start_command_wikimit(command: str) -> subprocess.Popen[bytes]:
+def _start_command_wikimit(command: str) -> subprocess.Popen[str]:
     return _start_command(command, working_dir=WIKIMIT_ENGINE_DIR)
+
+
+@contextmanager
+def _thread_command_wikimit(command: str):
+    with _thread_command(command, working_dir=WIKIMIT_ENGINE_DIR):
+        yield
 
 
 def _run_command(command: str, working_dir: Path | None = None) -> str:
@@ -169,7 +184,7 @@ def _run_command(command: str, working_dir: Path | None = None) -> str:
 
 def _start_command(
     command: str, working_dir: Path | None = None
-) -> subprocess.Popen[bytes]:
+) -> subprocess.Popen[str]:
     logger.info(f"% {command}")
     try:
         process = subprocess.Popen(
@@ -178,13 +193,52 @@ def _start_command(
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             cwd=working_dir,
+            text=True,
         )
         logger.debug("> Started")
         return process
     except subprocess.CalledProcessError as e:
-        logger.debug("> Failure")
-        logger.error(e.stderr)
+        logger.error("> Failure")
+        if e.stdout:
+            logger.error(e.stdout)
+        if e.stderr:
+            logger.error(e.stderr)
         raise typer.Exit(code=1)
+
+
+def _run_command_threaded(
+    command: str, working_dir: Path | None = None
+) -> tuple[threading.Thread, subprocess.Popen[str]]:
+    process = _start_command(command, working_dir)
+
+    def run_command():
+        try:
+            logger.debug("Started thread")
+            process.communicate()
+            logger.debug("Finished thread")
+        except Exception as e:
+            logger.debug(f"Exception in thread: {e}")
+
+    thread = threading.Thread(target=run_command)
+    thread.start()
+    return (thread, process)
+
+
+@contextmanager
+def _thread_command(command: str, working_dir: Path | None = None):
+    thread, process = None, None
+    try:
+        thread, process = _run_command_threaded(command, working_dir)
+        yield
+    finally:
+        if process:
+            process.send_signal(signal.CTRL_C_EVENT)
+            process.terminate()
+        if thread:
+            try:
+                thread.join()
+            except KeyboardInterrupt:
+                logger.debug("Caught keyboard interrupt in thread join")
 
 
 if __name__ == "__main__":
