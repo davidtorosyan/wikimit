@@ -59,7 +59,7 @@ def test_main(ctx: typer.Context):
     if ctx.invoked_subcommand is None:
         test_setup()
         run_unit_tests()
-        run_integration_tests_with_docker()
+        run_integration_tests_with_docker(CleanupWhen.on_success)
 
 
 @test_app.command("unit")
