@@ -55,6 +55,14 @@ def setup():
 
 
 @app.command()
+def smoke():
+    """Run smoke test"""
+    install_build_requirements()
+    run_sam_build()
+    run_smoke_test()
+
+
+@app.command()
 def build():
     """Build the application"""
     install_build_requirements()
@@ -121,6 +129,12 @@ def docker_stepfunctions_local(name: str, cleanup_when: CleanupWhen):
             remove_docker_stepfunctions_local(name)
         else:
             logger.warning("Skipping stepfunction cleanup")
+
+
+def run_smoke_test() -> None:
+    logger.print("Running smoke test")
+    result = _run_command_wikimit("sam local invoke -e tests/events/smoke.json")
+    logger.success("Smoke test completed: %s", result)
 
 
 def run_sam_build() -> None:
