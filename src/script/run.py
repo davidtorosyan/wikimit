@@ -48,8 +48,16 @@ def main(
 
 
 @app.command()
+def setup():
+    """Install dependencies"""
+    install_build_requirements()
+    install_test_requirements()
+
+
+@app.command()
 def build():
     """Build the application"""
+    install_build_requirements()
     run_sam_build()
 
 
@@ -87,6 +95,7 @@ def test_integration(
 
 
 def test_setup():
+    install_build_requirements()
     run_sam_build()
     install_test_requirements()
 
@@ -119,8 +128,15 @@ def run_sam_build() -> None:
     _run_command_wikimit("sam build --use-container")
 
 
+def install_build_requirements():
+    logger.print("Setting up build environment")
+    _run_command_wikimit(
+        "pip install -r functions/revision_sync/requirements.txt --user"
+    )
+
+
 def install_test_requirements():
-    logger.print("Setting up environment")
+    logger.print("Setting up test environment")
     _run_command_wikimit("pip install -r tests/requirements.txt --user")
 
 
