@@ -4,10 +4,12 @@ import subprocess
 import threading
 import time
 from contextlib import contextmanager
+from enum import Enum
 from pathlib import Path
 
 import typer
 from output import configure, logger
+from typing_extensions import Annotated
 
 app = typer.Typer()
 test_app = typer.Typer()
@@ -17,6 +19,12 @@ app.add_typer(test_app, name="test")
 WIKIMIT_ENGINE_DIR = Path(__file__).parent.parent.parent / "src" / "wikimit-engine"
 
 DOCKER_STEPFUNCTIONS_LOCAL_NAME = "integration-test-stepfunctions"
+
+
+class CleanupWhen(str, Enum):
+    always = "always"
+    never = "never"
+    on_success = "on_success"
 
 
 @app.callback(invoke_without_command=True)
@@ -63,16 +71,19 @@ def test_unit():
 
 @test_app.command("int")
 def test_integration(
-    no_cleanup: bool = typer.Option(
-        0,
-        "--no-cleanup",
-        "-nc",
-        help="don't cleanup after tests",
-    ),
+    cleanup_when: Annotated[
+        CleanupWhen,
+        typer.Option(
+            "--cleanup-when",
+            "-cw",
+            case_sensitive=False,
+            help="when to clean up the stepfunction",
+        ),
+    ] = CleanupWhen.on_success,
 ):
     """Run integration tests. Requires docker."""
     test_setup()
-    run_integration_tests_with_docker(no_cleanup)
+    run_integration_tests_with_docker(cleanup_when)
 
 
 def test_setup():
@@ -80,21 +91,27 @@ def test_setup():
     install_test_requirements()
 
 
-def run_integration_tests_with_docker(no_cleanup: bool = False):
+def run_integration_tests_with_docker(cleanup_when: CleanupWhen):
     with thread_sam_local_start_lambda():
-        with docker_stepfunctions_local(DOCKER_STEPFUNCTIONS_LOCAL_NAME, no_cleanup):
+        with docker_stepfunctions_local(DOCKER_STEPFUNCTIONS_LOCAL_NAME, cleanup_when):
             run_integration_tests()
 
 
 @contextmanager
-def docker_stepfunctions_local(name: str, no_cleanup: bool = False):
+def docker_stepfunctions_local(name: str, cleanup_when: CleanupWhen):
+    success = False
     try:
         start_docker_stepfunctions_local(name)
         yield
+        success = True
     finally:
-        if not no_cleanup:
+        if cleanup_when == CleanupWhen.always or (
+            cleanup_when == CleanupWhen.on_success and success
+        ):
             stop_docker_stepfunctions_local(name)
             remove_docker_stepfunctions_local(name)
+        else:
+            logger.warning("Skipping stepfunction cleanup")
 
 
 def run_sam_build() -> None:
